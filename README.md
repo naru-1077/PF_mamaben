@@ -16,13 +16,7 @@
 ①「子供のお弁当に迷った時」②「他の人がどんなお弁当を作っているのか知りたい時」③「子供が喜んでくれたお弁当を投稿したい時」
 
 ## 設計書
-図案 https://drive.google.com/file/d/1guOWwJUwbUpbtI03ypXERSJP1ZrHViao/view?usp=sharing
-ER図　https://drive.google.com/file/d/1xiO4KPGmhnHXQeAmuD-CWaW7pk_yetXg/view?usp=sharing
-テーブル図 https://docs.google.com/spreadsheets/d/1HAjT23G337LjXPMA1J8NGbWqJhNo_vv7gtDrYsy2qHo/edit?usp=sharing
-詳細設計書 https://docs.google.com/spreadsheets/d/1JwG_bNjIyuiRqi77VW-QcnD55LwG1IZwmuMTotySrDk/edit?usp=sharing
-
-## 機能一覧
-https://docs.google.com/spreadsheets/d/1TF_anCCa9u2dIWmPrnJ7ohVDeRwcGm6YmP3-k9QRQMA/edit#gid=0
+機能一覧  https://docs.google.com/spreadsheets/d/1TF_anCCa9u2dIWmPrnJ7ohVDeRwcGm6YmP3-k9QRQMA/edit#gid=0
 
 ## 開発環境
 - OS：Linux(CentOS)
