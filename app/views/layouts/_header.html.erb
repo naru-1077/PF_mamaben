@@ -10,21 +10,21 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <li class="nav-link" style="color: #968c83">ようこそ、<%= user.name %>さん！</li>
-          <li><%= link_to '新規投稿する', new_post_page_path, class: 'nav-link text-light' %></li>
-          <li><%= link_to '投稿一覧', posts_path, class: 'nav-link text-light' %></li>
-          <li><%= link_to 'マイページ', users_my_page_path ,class: 'nav-link text-light' %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete,class: 'nav-link text-light' %></li>
+          <li class="nav-link" style="color: #ffffff">ようこそ、<%= user.name %>さん！</li>
+          <li><%= link_to '新規投稿する', new_post_path, class: 'btn btn-lightblue nav-link text-light' %></li>
+          <li><%= link_to '投稿一覧', posts_path, class: 'btn btn-lightblue nav-link text-light' %></li>
+          <li><%= link_to 'マイページ', users_my_page_path ,class: 'btn btn-lightblue nav-link text-light' %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete,class: 'btn btn-lightblue nav-link text-light' %></li>
         <% elsif admin_signed_in? %>
-          <li><%= link_to '投稿一覧', posts_path,class: 'nav-link text-light' %></li>
-          <li><%= link_to '会員一覧', admin_users_path,class: 'nav-link text-light' %></li>
-          <li><%= link_to 'ジャンル一覧', admin_genres_path,class: 'nav-link text-light' %></li>
-          <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %></li>
+          <li><%= link_to '投稿一覧', posts_path,class: 'btn btn-lightblue nav-link text-light' %></li>
+          <li><%= link_to '会員一覧', admins_users_path,class: 'btn btn-lightblue nav-link text-light' %></li>
+          <li><%= link_to 'ジャンル一覧', admins_genres_path,class: 'btn btn-lightblue nav-link text-light' %></li>
+          <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete,class: 'btn btn-lightblue nav-link text-light' %></li>
         <% else %>
-          <li><%= link_to 'About', about_path, class: 'nav-link text-light' %></li>
-          <li><%= link_to '投稿一覧', posts_path, class: 'nav-link text-light' %></li>
-          <li><%= link_to '新規登録', new_user_registration_path, class: 'nav-link text-light' %></li>
-          <li><%= link_to 'ログイン', new_user_session_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to 'About', about_path, class: 'btn btn-lightblue nav-link text-light' %></li>
+          <li><%= link_to '投稿一覧', posts_path, class: 'btn btn-lightblue nav-link text-light' %></li>
+          <li><%= link_to '新規登録', new_user_registration_path, class: 'btn btn-lightblue nav-link text-light' %></li>
+          <li><%= link_to 'ログイン', new_user_session_path, class: 'btn btn-lightblue nav-link text-light' %></li>
         <% end %>
         </ul>
       </div>
