@@ -25,41 +25,41 @@ ActiveRecord::Schema.define(version: 2021_04_02_055854) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre_name"
+    t.string "genre_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "post_comments", force: :cascade do |t|
-    t.text "comment"
-    t.integer "user_id"
-    t.integer "post_id"
+    t.text "comment", null: false
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "image_id"
-    t.string "title"
-    t.text "introduction"
-    t.text "material"
-    t.integer "user_id"
-    t.integer "genre_id"
+    t.string "image_id", null: false
+    t.string "title", null: false
+    t.text "introduction", null: false
+    t.text "material", null: false
+    t.integer "user_id", null: false
+    t.integer "genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "recipes", force: :cascade do |t|
     t.string "recipe_image_id"
-    t.text "recipe"
-    t.integer "post_id"
+    t.text "recipe", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_055854) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
+    t.boolean "withdraw_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -18,6 +18,42 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+.btn-lightblue,
+.btn-lightblue.disabled, .btn-lightblue:disabled {
+  color: #fff;
+  background-color: #93DEF7;
+  border-color: #93DEF7;
+}
+
+.btn {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.about-top {
+  margin-top: 60px;
+}
+
+.about-text {
+  font-size: 20px;
+}
+
+.about-image1 {
+  background-image: url(about1.png);
+  background-size: cover;
+  background-position: top center;
+}
+
+.about-image2 {
+  background-image: url(about2.png);
+  background-size: cover;
+  background-position: top center;
+}
+
+.title-text {
+  font-size: 20px;
+}
+
 body {
   background-color: #FEF8F6;
 }
@@ -25,6 +61,29 @@ body {
 main {
   padding: 30px 0;
   background-color: #FEF8F6;
+}
+
+.main-visual {
+  width: 100%;
+  height: 400px;
+  margin-top: 40px;
+  background-image: url(top.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.main-visual-content {
+  display: none;
+  width: 100%;
+  height: 400px;
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.ranking-posts {
+  margin: 45px 0;
 }
 
 footer {

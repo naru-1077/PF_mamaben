@@ -4,9 +4,9 @@
 
 　　　<div class="title text-center">
         <%= link_to image_tag(src= "logo.png"), "/" %>
-        <h3 class="title">mama弁アカウントでログイン<h3>
+        <h2 class="title">mama弁アカウントでログイン<h2>
         <p class="title-text">mama弁アカウントをお持ちの方は、ログインしてご利用ください<p>
-        <p class="title-text"><%= link_to "アカウント作成はこちら", new_user_session_path %><p>
+        <p class="title-text"><%= link_to "アカウント作成はこちら", new_user_registration_path %><p>
       </div>
 
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>

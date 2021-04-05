@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
 }
 
-namespace :admin do
+namespace :admins do
     get "/" => "users#index"
     resources :users, only: [:index, :show, :edit, :update]
 
@@ -18,7 +18,7 @@ namespace :admin do
 
   end
 
-scope module: :user do
+scope module: :users do
     root to: "homes#top"
     get "/about" => "homes#about"
     get "/users/my_page" => "users#show"
