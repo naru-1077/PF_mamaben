@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <h2 class="title">ジャンル一覧・追加</h2>
+        <%= form_with model: [:admins, @genre], local: true do |f| %>
+        <table class= "table table-hover table-inverse">
+          <thead>
+            <tr>
+              <td style="width:20%">ジャンル名</td>
+              <td style="width:20%"><%= f.text_field :genre_name, placeholder: "ジャンル名", size: 25 %></td>
+              <td><%= f.submit "新規登録", class: 'btn btn-primary btn-sm' %></td>
+            </tr>
+          </thead>
+        </table>
+        <% end %>
+
+        <table class="table table-hover table-inverse" >
+          <thead>
+            <tr style="background-color: #ffe6ca">
+              <th class="text-center">登録済みジャンル</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @genres.each do |genre| %>
+            <tr>
+              <td><%= genre.genre_name %></td>
+              <td class="text-center">
+                <%= link_to "編集する", edit_admins_genre_path(genre), class: "btn btn-success btn-sm" %>
+                <%= link_to "削除する", admins_genre_path(genre), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "このジャンルを削除しますか?" %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+    </div>
+  </div>
+</div>

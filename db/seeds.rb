@@ -10,3 +10,10 @@ Admin.create!(
   email: 'admin@gmail.com',
   password: '000000'
   )
+
+User.create!(
+  name: 'なる',
+  email: 'naru@naru',
+  password: '000000',
+  withdraw_status: 'false'
+  )

@@ -1,8 +1,8 @@
 class Users::PostsController < ApplicationController
 
   def index
-    @posts = post.page(params[:page]).per(8)
-    @posts_all = post.all
+    @posts = Post.page(params[:page]).per(8)
+    @posts_all = Post.all
     @genre = Genre.find(params[:id]) if params[:id]
     @genres = Genre.all
   end

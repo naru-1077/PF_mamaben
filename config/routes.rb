@@ -14,7 +14,7 @@ namespace :admins do
     get "/" => "users#index"
     resources :users, only: [:index, :show, :edit, :update]
 
-    resources :genres, only: [:index, :create, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
 
   end
 
