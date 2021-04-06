@@ -18,16 +18,13 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-.btn-lightblue,
-.btn-lightblue.disabled, .btn-lightblue:disabled {
-  color: #fff;
-  background-color: #93DEF7;
-  border-color: #93DEF7;
-}
-
 .btn {
   font-size: 20px;
   margin-right: 10px;
+}
+
+.nav-link1 {
+  margin-right: 15px;
 }
 
 .about-top {
