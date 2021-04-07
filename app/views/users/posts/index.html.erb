@@ -4,7 +4,7 @@
 
       <% if @genre %>
         <p>
-          <strong><%= @genre.name %></strong>(全<%= @genre.posts.count %>件)
+          <strong><%= @genre.name %></strong>(全<%= @genre.post.count %>件)
         </p>
         <% @genre.posts.each do |post| %>
           <table class= "d-inline-block">
@@ -16,19 +16,19 @@
               </td>
             </tr>
             <tr>
-              <td><%= post.user.name %></td>
+              <td><%= "アカウント名: #{post.user.name}さん" %></td>
             </tr>
             <tr>
-              <td><%= post.genre.name %></td>
+              <td><%= "ジャンル: #{post.genre.genre_name}" %></td>
             </tr>
             <tr>
-              <td><%= post.title %></td>
+              <td><%= "タイトル: #{post.title}" %></td>
             </tr>
             <tr>
-              <td><%= "お気に入り数: #{post.favorite.count}件" %></td>
+              <td><%= "お気に入り数: #{post.favorites.count}件" %></td>
             </tr>
             <tr>
-              <td><%= "コメント数: #{post.comment.count}件" %></td>
+              <td><%= "コメント数: #{post.post_comments.count}件" %></td>
             </tr>
           </table>
         <% end %>
@@ -41,24 +41,24 @@
             <tr>
               <td>
                 <%= link_to post_path(post) do %>
-                  <%= attachment_image_tag(post, :image, :fill, 270, 150) %>
+                  <%= attachment_image_tag(post, :image, :fill, 300, 175) %>
                 <% end %>
               </td>
             </tr>
             <tr>
-              <td><%= post.user.name %></td>
+              <td><%= "アカウント名: #{post.user.name}さん" %></td>
             </tr>
             <tr>
-              <td><%= post.genre.name %></td>
+              <td><%= "ジャンル: #{post.genre.genre_name}" %></td>
             </tr>
             <tr>
-              <td><%= post.title %></td>
+              <td><%= "タイトル: #{post.title}" %></td>
             </tr>
             <tr>
-              <td><%= "お気に入り数: #{post.favorite.count}件" %></td>
+              <td><%= "お気に入り数: #{post.favorites.count}件" %></td>
             </tr>
             <tr>
-              <td><%= "コメント数: #{post.comment.count}件" %></td>
+              <td><%= "コメント数: #{post.post_comments.count}件" %></td>
             </tr>
           </table>
         <% end %>

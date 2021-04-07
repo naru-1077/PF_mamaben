@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td style="width:25%"><p><strong>登録情報</strong><%= link_to "編集する", users_my_page_edit_path, class: "btn btn-success btn-sm", data: {"turbolinks" => false} %></p></td>
+            <td><p><strong>退会</strong><%= link_to "退会画面へ", users_unsubscribe_path, class: "btn btn-danger btn-sm", data: {"turbolinks" => false} %></p></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-hover table-inverse table-bordered">
+        <tbody>
+          <tr>
+            <td>アカウント名</td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td>パスワード</td>
+            <td><%= @user.encrypted_password %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td><p><strong>投稿履歴</strong><%= link_to "一覧を見る", posts_path, class: "btn btn-primary btn-sm", data: {"turbolinks" => false} %></p></td>
+            <td><p><strong>お気に入りリスト</strong><%= link_to "一覧を見る", favorites_path, class: "btn btn-warning btn-sm", data: {"turbolinks" => false} %></p></td>
+            <td><p><strong>コメント履歴</strong><%= link_to "一覧を見る", post_comments_path, class: "btn btn-info btn-sm", data: {"turbolinks" => false} %></p></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

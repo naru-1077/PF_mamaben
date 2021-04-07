@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="unsubsctibe text-center">
+        <p><strong>本当に退会しますか？</strong></p><br />
+        <p>退会すると、アカウント登録情報やこれまでの投稿履歴、</p>
+        <p>お気に入りした投稿が閲覧できなくなります。</p>
+        <p>退会する場合は、「退会する」をクリックしてください。</p>
+        <%= link_to "退会しない", users_my_page_path, class: 'btn btn-primary btn-sm', data: {"turbolinks" => false} %>
+        <%= link_to "退会する", users_withdraw_path, class: 'btn btn-danger btn-sm', method: :patch, data: {"turbolinks" => false} %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,67 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
 
+  <!--モデルpost-->
+  <%= form_with model: @post, local: true do |f| %>
+  <div class="row">
+    <div class="col-md-5.5">
+      <table class="table table-borderless">
+        <tr>
+          <td>アカウント名</td>
+          <td><%= link_to "#{current_user.name}", new_post_path, data: {"turbolinks" => false} %></td>
+        </tr>
+        <tr>
+          <td>ジャンル選択</td>
+          <td><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, include_blank: "選択して下さい" %></td>
+        </tr>
+        <tr>
+          <td>お弁当完成画像</td>
+          <td><%= f.attachment_field :image %></td>
+        </tr>
+      </table>
+      <table class="table table-borderless">
+        <tr>
+          <td><img id="preview"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-6.5">
+      <table class="table table-borderless">
+        <tr>
+          <td>タイトル名</td>
+          <td><%= f.text_field :title, placeholder: "タコさんウインナーと愉快な仲間たち", size: 50 %></td>
+        </tr>
+        <tr>
+          <td>投稿紹介文</td>
+          <td><%= f.text_area :introduction, placeholder: "子供の運動会用に作ってみました！", size: "50x10" %></td>
+        </tr>
+        <tr>
+          <td>材料</td>
+          <td><%= f.text_area :material, placeholder: "たまご:２個 ウインナー:１袋 砂糖:大さじ２ など", size: "50x10" %></td>
+        </tr>
+      </table>
     </div>
   </div>
+  <%= f.fields_for :resipe do |r| %>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-borderless">
+          <tr>
+            <td>作り方①</td>
+          </tr>
+          <tr>
+            <td><%= r.attachment_field  :recipe_image %></td>
+            <td><img id="preview_recipe"></td>
+            <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "50x10" %></td>
+          </tr>
+          <tr>
+            <td><%= f.submit "投稿する", class: 'btn btn-primary btn-sm' %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>
+
+  <% end %>
+
 </div>
