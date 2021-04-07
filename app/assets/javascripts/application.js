@@ -19,3 +19,27 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function () {
+$(".openbtn").click(function () {//ボタンがクリックされたら
+	$(this).toggleClass('active');//ボタン自身に activeクラスを付与し
+    $("#g-nav").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+});
+});
+
+$(document).ready(function () {
+$("#g-nav a").click(function () {//ナビゲーションのリンクがクリックされたら
+    $(".openbtn").removeClass('active');//ボタンの activeクラスを除去し
+    $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
+});
+});
+
+$(document).ready(function () {
+$('#post_image').on('change', function (e) {
+var reader = new FileReader();
+reader.onload = function (e) {
+    $("#preview").attr('src', e.target.result);
+}
+reader.readAsDataURL(e.target.files[0]);
+});
+});

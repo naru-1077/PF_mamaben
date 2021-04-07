@@ -1,0 +1,48 @@
+<div class="container">
+
+  <!--モデルpost-->
+  <% @posts_all.each do |post| %>
+  <div class="row">
+    <div class="col-md-5">
+      <table class="table table-borderless">
+        <tr>
+          <td>アカウント名</td>
+          <td><%= link_to "#{current_user.name}", posts_path, data: {"turbolinks" => false} %></td>
+        </tr>
+        <tr>
+          <td>ジャンル選択</td>
+          <td><%= post.genre.genre_name %></td>
+        </tr>
+        <tr>
+          <td>お弁当完成画像</td>
+        </tr>
+      </table>
+      <table class="table table-borderless">
+        <tr>
+          <td><%= attachment_image_tag post, :image, :fill, 450, 250, format: 'jpeg' %></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-5">
+      <table class="table table-borderless">
+        <tr>
+          <td>タイトル名</td>
+          <td><%= post.title %></td>
+        </tr>
+        <tr>
+          <td>投稿紹介文</td>
+          <td><%= post.introduction %></td>
+        </tr>
+        <tr>
+          <td>材料</td>
+          <td><%= post.material %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <% end %>
+
+</div>

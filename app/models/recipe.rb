@@ -1,7 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :post
 
-  attachment :image
+  attachment :recipe_image
 
-	validates :recipe, presence: true
 end

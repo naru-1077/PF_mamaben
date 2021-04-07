@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_055854) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "recipe_image_id"
-    t.text "recipe", null: false
+    t.text "recipe"
     t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

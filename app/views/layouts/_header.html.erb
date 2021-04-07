@@ -1,33 +1,27 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #F59D7F">
-    <div class="container">
-      <a class="navbar-brand" href="/">
-        <%= link_to image_tag(src= "logo_header.png"), "/" %>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+  <div class="logo"><%= link_to image_tag(src= "logo_header.png"), "/" %></div>
+  <div class="openbtn"><span></span><span></span><span></span></div>
+    <nav id="g-nav">
+    <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
+      <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <li class="nav-link" style="color: #ffffff">ようこそ、<%= user.name %>さん！</li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header1.png"), new_post_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header3.png"), users_my_page_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header4.png"), destroy_user_session_path, method: :delete %></li>
+          <li class="nav-link" style="color: #AA5336">ようこそ、<%= user.name %>さん！</li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header1.png"), new_post_path, data: {"turbolinks" => false} %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path, data: {"turbolinks" => false} %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header3.png"), users_my_page_path, data: {"turbolinks" => false} %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header4.png"), destroy_user_session_path, method: :delete, data: {"turbolinks" => false} %></li>
         <% elsif admin_signed_in? %>
-          <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header8.png"), admins_users_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header9.png"), admins_genres_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header4.png"), destroy_admin_session_path, method: :delete %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path, data: {"turbolinks" => false} %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header8.png"), admins_users_path, data: {"turbolinks" => false} %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header9.png"), admins_genres_path, data: {"turbolinks" => false} %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header4.png"), destroy_admin_session_path, method: :delete, data: {"turbolinks" => false} %></li>
         <% else %>
-          <li class="nav-link1"><%= link_to image_tag(src= "header5.png"), about_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header6.png"), new_user_registration_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header7.png"), new_user_session_path %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header5.png"), about_path, data: {"turbolinks" => false} %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path, data: {"turbolinks" => false} %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header6.png"), new_user_registration_path, data: {"turbolinks" => false} %></li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header7.png"), new_user_session_path, data: {"turbolinks" => false} %></li>
         <% end %>
-        </ul>
-      </div>
+      </ul>
     </div>
-  </nav>
+    </nav>
 </header>
