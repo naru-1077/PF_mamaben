@@ -1,7 +1,7 @@
 <div class="container">
 
   <!--モデルpost-->
-  <%= form_with model: @post, local: true do |f| %>
+  <%= form_with model: @post, url: post_path(@post), local: true do |f| %>
   <div class="row">
     <div class="col-md-5.5">
       <table class="table table-borderless">
@@ -188,10 +188,10 @@
     </div>
 
     <div class="text-right">
-      <%= f.submit "投稿する", class: 'btn btn-primary btn-sm' %>
+      <%= f.submit "変更を保存する", class: 'btn btn-primary btn-sm' %>
     </div>
 
-  <!--form_withの閉じ-->
+　<!--form_withの閉じ-->
   <% end %>
 
 </div>
