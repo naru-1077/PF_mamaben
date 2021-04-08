@@ -1,7 +1,6 @@
 <div class="container">
 
   <!--モデルpost-->
-  <% @posts_all.each do |post| %>
   <div class="row">
     <div class="col-md-5">
       <table class="table table-borderless">
@@ -11,7 +10,7 @@
         </tr>
         <tr>
           <td>ジャンル選択</td>
-          <td><%= post.genre.genre_name %></td>
+          <td><%= @post.genre.genre_name %></td>
         </tr>
         <tr>
           <td>お弁当完成画像</td>
@@ -19,7 +18,7 @@
       </table>
       <table class="table table-borderless">
         <tr>
-          <td><%= attachment_image_tag post, :image, :fill, 450, 250, format: 'jpeg' %></td>
+          <td><%= attachment_image_tag @post, :image, format: 'jpeg', size: "450x250" %></td>
         </tr>
       </table>
     </div>
@@ -28,21 +27,58 @@
       <table class="table table-borderless">
         <tr>
           <td>タイトル名</td>
-          <td><%= post.title %></td>
+          <td><%= @post.title %></td>
         </tr>
         <tr>
           <td>投稿紹介文</td>
-          <td><%= post.introduction %></td>
+          <td><%= @post.introduction %></td>
         </tr>
         <tr>
           <td>材料</td>
-          <td><%= post.material %></td>
+          <td><%= @post.material %></td>
         </tr>
       </table>
     </div>
   </div>
 
+   <% @post.recipes.each_with_index do |recipe, idx| %>
+   <div class="row">
+      <div class="col-md-12">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <td style="width:10%"><%= "作り方#{idx + 1}" %></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= attachment_image_tag recipe, :recipe_image, format: 'jpeg', size: "200x200" %></td>
+            </tr>
+            <tr>
+              <td><%= recipe.recipe %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <% end %>
 
-  <% end %>
+    <div class="text-center">
+      <% if current_user == @post.user %>
+        <%= link_to '編集する', edit_post_path(@post), class:"btn btn-success", data: {"turbolinks" => false} %>
+        <%= link_to '削除する', post_path(@post), class:"btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか?", data: {"turbolinks" => false} %>
+      <% else %>
+        <div class="my_comment">
+          <%= render "users/post_comments/mycomment", post_comments: @post.post_comments %>
+        </div>
+        <div class="comment_form">
+        <%= form_with(model:[@post, @post_comment], url: post_post_comments_path(@post), remote: true ) do |f| %>
+          <%= f.text_area :comment, size:"90x5", rows:'5',placeholder: "コメントをここに" %>
+          <%= f.submit "コメントを送信", class: 'btn btn-primary btn-sm' %>
+        <% end %>
+        </div>
+        <%= link_to 'お気に入り登録', post_path(@post), class:"btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか?", data: {"turbolinks" => false} %>
+      <% end %>
+    </div>
 
 </div>

@@ -25,15 +25,13 @@ scope module: :users do
     get "/users/unsubscribe" => "users#unsubscribe"
     patch "/users/withdraw" => "users#withdraw"
     get "/users/my_page/edit" => "users#edit"
-    patch "/users" => "users#update"
+    patch "/users/update" => "users#update"
 
 
     resources :favorites, only: [:index, :create, :destroy]
 
-    resources :post_comments, only: [:index, :new, :create, :edit, :update, :destroy]
-
     resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-      resources :recipe, only: [:new, :create, :show, :edit, :update, :destroy]
+      resources :post_comments, only: [:index, :new, :create, :edit, :update, :destroy]
     end
   end
 
