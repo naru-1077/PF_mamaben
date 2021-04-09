@@ -34,6 +34,7 @@ $("#g-nav a").click(function () {//ナビゲーションのリンクがクリッ
 });
 });
 
+// レシピ完成画像プレビュー
 $(document).ready(function () {
 $('#post_image').on('change', function (e) {
 var reader = new FileReader();
@@ -44,11 +45,67 @@ reader.readAsDataURL(e.target.files[0]);
 });
 });
 
+// レシピ作り方画像プレビュー1
 $(document).ready(function () {
-$('#post_recipe_attributes_recipe_image').on('change', function (e) {
+$('#post_recipes_attributes_0_recipe_image').on('change', function (e) {
 var reader = new FileReader();
 reader.onload = function (e) {
-    $("#preview_recipe").attr('src', e.target.result);
+    $("#preview_recipe1").attr('src', e.target.result);
+}
+reader.readAsDataURL(e.target.files[0]);
+});
+});
+
+// レシピ作り方画像プレビュー2
+$(document).ready(function () {
+$('#post_recipes_attributes_1_recipe_image').on('change', function (e) {
+var reader = new FileReader();
+reader.onload = function (e) {
+    $("#preview_recipe2").attr('src', e.target.result);
+}
+reader.readAsDataURL(e.target.files[0]);
+});
+});
+
+// レシピ作り方画像プレビュー3
+$(document).ready(function () {
+$('#post_recipes_attributes_2_recipe_image').on('change', function (e) {
+var reader = new FileReader();
+reader.onload = function (e) {
+    $("#preview_recipe3").attr('src', e.target.result);
+}
+reader.readAsDataURL(e.target.files[0]);
+});
+});
+
+// レシピ作り方画像プレビュー4
+$(document).ready(function () {
+$('#post_recipes_attributes_3_recipe_image').on('change', function (e) {
+var reader = new FileReader();
+reader.onload = function (e) {
+    $("#preview_recipe4").attr('src', e.target.result);
+}
+reader.readAsDataURL(e.target.files[0]);
+});
+});
+
+// レシピ作り方画像プレビュー5
+$(document).ready(function () {
+$('#post_recipes_attributes_4_recipe_image').on('change', function (e) {
+var reader = new FileReader();
+reader.onload = function (e) {
+    $("#preview_recipe5").attr('src', e.target.result);
+}
+reader.readAsDataURL(e.target.files[0]);
+});
+});
+
+// レシピ作り方画像プレビュー6
+$(document).ready(function () {
+$('#post_recipes_attributes_5_recipe_image').on('change', function (e) {
+var reader = new FileReader();
+reader.onload = function (e) {
+    $("#preview_recipe6").attr('src', e.target.result);
 }
 reader.readAsDataURL(e.target.files[0]);
 });
