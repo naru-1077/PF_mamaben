@@ -27,10 +27,9 @@ scope module: :users do
     get "/users/my_page/edit" => "users#edit"
     patch "/users/update" => "users#update"
 
-
-    resources :favorites, only: [:index, :create, :destroy]
-
     resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      resource :favorites, only: [:create, :destroy]
+      resources :favorites, only: [:index]
       resources :post_comments, only: [:index, :new, :create, :edit, :update, :destroy]
     end
   end
