@@ -41,9 +41,9 @@
     </div>
   </div>
 
-   <% @post.recipes.each_with_index do |recipe, idx| %>
-   <div class="row">
-      <div class="col-md-12">
+  <div class="row">
+    <% @post.recipes.each_with_index do |recipe, idx| %>
+      <div class="col-md-4">
         <table class="table table-borderless">
           <thead>
             <tr>
@@ -52,7 +52,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= attachment_image_tag recipe, :recipe_image, format: 'jpeg', size: "200x200" %></td>
+              <td><%= attachment_image_tag recipe, :recipe_image, format: 'jpeg', size: "350x200" %></td>
             </tr>
             <tr>
               <td><%= recipe.recipe %></td>
@@ -60,8 +60,8 @@
           </tbody>
         </table>
       </div>
-    </div>
     <% end %>
+  </div>
 
     <div class="text-center">
       <% if current_user == @post.user %>
@@ -73,7 +73,7 @@
         </div>
         <div class="comment_form">
         <%= form_with(model:[@post, @post_comment], url: post_post_comments_path(@post), remote: true ) do |f| %>
-          <%= f.text_area :comment, size:"90x5", rows:'5',placeholder: "コメントをここに" %>
+          <%= f.text_area :comment, size:"110x5", rows:'5',placeholder: "コメントをここに" %>
           <%= f.submit "コメントを送信", class: 'btn btn-primary btn-sm' %>
         <% end %>
         </div>
