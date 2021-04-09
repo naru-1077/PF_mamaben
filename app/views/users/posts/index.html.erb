@@ -7,7 +7,7 @@
           <strong><%= @genre.name %></strong>(全<%= @genre.post.count %>件)
         </p>
         <% @genre.posts.each do |post| %>
-          <table class= "d-inline-block">
+          <table class= "post-index d-inline-block">
             <tr>
               <td>
                 <%= link_to post_path(post) do %>
@@ -37,7 +37,7 @@
           <strong>投稿一覧</strong>(全<%= @posts_all.count %>件)
         </p>
         <% @posts.each do |post| %>
-           <table class= "d-inline-block">
+           <table class= "post-index d-inline-block">
             <tr>
               <td>
                 <%= link_to post_path(post), data: {"turbolinks" => false} do %>
@@ -66,8 +66,10 @@
           </table>
         <% end %>
       <% end %>
+
    </div>
   </div>
+
 
   <br>
   <div class="row">
