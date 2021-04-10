@@ -67,6 +67,8 @@ gem 'jquery-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem "pry-rails"
 gem 'font-awesome-sass', '~> 5.13'
 gem 'pry-byebug'

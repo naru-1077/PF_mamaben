@@ -6,6 +6,7 @@
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-link" style="color: #AA5336">ようこそ、<%= user.name %>さん！</li>
+          <li class="nav-link1"><%= link_to image_tag(src= "header10.png"), root_path, data: {"turbolinks" => false} %></li>
           <li class="nav-link1"><%= link_to image_tag(src= "header1.png"), new_post_path, data: {"turbolinks" => false} %></li>
           <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path, data: {"turbolinks" => false} %></li>
           <li class="nav-link1"><%= link_to image_tag(src= "header3.png"), users_my_page_path, data: {"turbolinks" => false} %></li>
