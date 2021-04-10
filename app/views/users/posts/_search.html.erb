@@ -1,0 +1,10 @@
+<%= search_form_for q, url:search_path do |f| %>
+  <%= f.label :検索ワード %>
+  <%= f.collection_select :genre_id_eq, @genres, :id, :genre_name, :include_blank => '指定なし' %>
+  <%= f.search_field :title_or_material_cont %>
+
+  <button type="submit">
+    <i class="fas fa-search"></i>
+  </button>
+<% end %>
+
