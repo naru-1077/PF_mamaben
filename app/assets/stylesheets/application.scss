@@ -17,6 +17,8 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import "jquery.tagit";
+@import "tagit.ui-zendesk";
 
 // ヘッダー
 header {
@@ -145,7 +147,7 @@ footer {
 
 // 新規投稿preview
 #preview {
-  height: 415px;
+  height: 360px;
   width: 450px;
 }
 

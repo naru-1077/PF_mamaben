@@ -14,6 +14,10 @@
           <td><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, include_blank: "選択して下さい" %></td>
         </tr>
         <tr>
+          <td>タグ</td>
+          <td><%= f.text_field :tag_list, value: @post.tag_list.join(',') %></td>
+        </tr>
+        <tr>
           <td>お弁当完成画像</td>
           <td><%= f.attachment_field :image %></td>
         </tr>
@@ -45,30 +49,33 @@
 
 recipes.count = (作り方は<%= @post.recipes.count %>件です)
 
+    <% @post.recipes.each.with_index(1) do |recipe, index| %>
+    <%= f.fields_for :recipes, recipe do |r| %>
     <div class="row">
-      <%= f.fields_for :recipes do |r| %>
-        <div class="col-md-4">
-          <table class="table table-borderless">
-            <thead>
-              <tr>
-                <td style="width:10%"><p>作り方<%= r.options[:child_index] + 1 %></p></td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><%= r.attachment_field  :recipe_image %></td>
-              </tr>
-              <tr>
-                <td><img id="preview_recipe1"></td>
-              </tr>
-              <tr>
-                <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      <% end %>
+      <div class="col-md-4">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <td style="width:10%">作り方<%= index %></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= r.attachment_field  :recipe_image %></td>
+            </tr>
+            <tr>
+              <td><img id="preview_recipe1"></td>
+            </tr>
+            <tr>
+              <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+    <% end %>
+  <% end %>
+
 
     <div class="text-right">
       <%= f.submit "変更を保存する", class: 'btn btn-primary btn-sm' %>

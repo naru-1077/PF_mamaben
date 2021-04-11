@@ -13,6 +13,10 @@
           <td><%= @post.genre.genre_name %></td>
         </tr>
         <tr>
+          <td>タグ</td>
+          <td><%= @post.tag_list %></td>
+        </tr>
+        <tr>
           <td>お弁当完成画像</td>
         </tr>
       </table>
@@ -70,12 +74,15 @@
       <% else %>
         <div class="my_comment">
           <%= render "users/post_comments/mycomment", post_comments: @post.post_comments %>
+          <% if flash[:notice] %>
+            <p><strong><%= flash[:notice] %></strong></p>
+          <% end %>
         </div>
         <div class="comment_form">
-        <%= form_with model:[@post, @post_comment], url: post_post_comments_path(@post), local: true do |f| %>
-          <%= f.text_area :comment, size:"110x5", rows:'5',placeholder: "コメントをここに" %>
-          <%= f.submit "コメントを送信", class: 'btn btn-primary btn-sm' %>
-        <% end %>
+          <%= form_with model:[@post, @post_comment], url: post_post_comments_path(@post), local: true do |f| %>
+            <%= f.text_area :comment, size:"110x5", rows:'5',placeholder: "コメントをここに" %>
+            <%= f.submit "コメントを送信", class: 'btn btn-primary btn-sm' %>
+          <% end %>
         </div>
         <div class="favorite">
           <%= render "users/favorites/favorite", post: @post %>
