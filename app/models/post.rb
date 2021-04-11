@@ -18,6 +18,8 @@ class Post < ApplicationRecord
 	validates :introduction, presence: true
 	validates :material, presence: true
 
+	#paginates_per 5
+
  def favorited_by?(user)
    favorites.where(user_id: user.id).exists?
  end

@@ -1,7 +1,7 @@
 class Users::HomesController < ApplicationController
 
   def top
-    @posts = Post.all.order("created_at DESC").page(params[:page]).per(3)
+    @posts = Post.limit(3).order(created_at: :desc)
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
 
