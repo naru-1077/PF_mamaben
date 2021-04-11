@@ -6,7 +6,7 @@ class Users::PostsController < ApplicationController
     @genre = Genre.find(params[:id]) if params[:id]
     @genres = Genre.all
     @q = Post.ransack(params[:q])
-    @posts_search = @q.result(distinct: true)
+    @posts_search = @q.result.page(params[:page]).per(6)
   end
 
   def new
@@ -53,11 +53,11 @@ class Users::PostsController < ApplicationController
   end
 
   def search
-    @q = Post.search(search_params)
-    @posts_search = @q.result(distinct: true)
-    @posts = Post.page(params[:page]).per(6)
     @genre = Genre.find(params[:id]) if params[:id]
     @genres = Genre.all
+    @q = Post.ransack(params[:q])
+    #byebug
+    @posts_search = @q.result.page(params[:page]).per(6)
   end
 
   private

@@ -43,148 +43,31 @@
     </div>
   </div>
 
-    <%= f.fields_for :recipes do |r| %>
+recipes.count = (作り方は<%= @post.recipes.count %>件です)
+
     <div class="row">
-      <div class="col-md-4">
-        <table class="table table-borderless">
-          <thead>
-            <tr>
-              <td style="width:10%">作り方1</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= r.attachment_field  :recipe_image %></td>
-            </tr>
-            <tr>
-              <td><img id="preview_recipe1"></td>
-            </tr>
-            <tr>
-              <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
-
-    <%= f.fields_for :recipes do |r| %>
-      <div class="col-md-4">
-        <table class="table table-borderless">
-          <thead>
-            <tr>
-              <td style="width:10%">作り方2<td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= r.attachment_field  :recipe_image %></td>
-            </tr>
-            <tr>
-              <td><img id="preview_recipe2"></td>
-            </tr>
-            <tr>
-              <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
-
-    <%= f.fields_for :recipes do |r| %>
-      <div class="col-md-4">
-        <table class="table table-borderless">
-          <thead>
-            <tr>
-              <td style="width:10%">作り方3<td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= r.attachment_field  :recipe_image %></td>
-            </tr>
-            <tr>
-              <td><img id="preview_recipe3"></td>
-            </tr>
-            <tr>
-              <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
-    <!--rowの閉じ-->
-    </div>
-
-    <%= f.fields_for :recipes do |r| %>
-    <div class="row">
-      <div class="col-md-4">
-        <table class="table table-borderless">
-          <thead>
-            <tr>
-              <td style="width:10%">作り方4<td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= r.attachment_field  :recipe_image %></td>
-            </tr>
-            <tr>
-              <td><img id="preview_recipe4"></td>
-            </tr>
-            <tr>
-              <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
-
-    <%= f.fields_for :recipes do |r| %>
-      <div class="col-md-4">
-        <table class="table table-borderless">
-          <thead>
-            <tr>
-              <td style="width:10%">作り方5<td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= r.attachment_field  :recipe_image %></td>
-            </tr>
-            <tr>
-              <td><img id="preview_recipe5"></td>
-            </tr>
-            <tr>
-              <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
-
-    <%= f.fields_for :recipes do |r| %>
-      <div class="col-md-4">
-        <table class="table table-borderless">
-          <thead>
-            <tr>
-              <td style="width:10%">作り方6<td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= r.attachment_field  :recipe_image %></td>
-            </tr>
-            <tr>
-              <td><img id="preview_recipe6"></td>
-            </tr>
-            <tr>
-              <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
-    <!--rowの閉じ-->
+      <%= f.fields_for :recipes do |r| %>
+        <div class="col-md-4">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <td style="width:10%"><p>作り方<%= r.options[:child_index] + 1 %></p></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= r.attachment_field  :recipe_image %></td>
+              </tr>
+              <tr>
+                <td><img id="preview_recipe1"></td>
+              </tr>
+              <tr>
+                <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
     </div>
 
     <div class="text-right">
