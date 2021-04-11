@@ -5,7 +5,7 @@ class Post < ApplicationRecord
 	has_many :post_comments, dependent: :destroy
 
 	has_many :recipes, dependent: :destroy
-	accepts_nested_attributes_for :recipes
+	accepts_nested_attributes_for :recipes, allow_destroy: true
 
 	# has_one :recipe, dependent: :destroy
 	# accepts_nested_attributes_for :recipe
@@ -13,12 +13,12 @@ class Post < ApplicationRecord
     accepts_attachments_for :recipes, attachment: :recipe_image
 	attachment :image
 
+	acts_as_taggable
+
 	validates :title, presence: true
 	validates :image, presence: true
 	validates :introduction, presence: true
 	validates :material, presence: true
-
-	#paginates_per 5
 
  def favorited_by?(user)
    favorites.where(user_id: user.id).exists?

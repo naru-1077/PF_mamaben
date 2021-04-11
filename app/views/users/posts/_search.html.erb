@@ -1,11 +1,22 @@
-<%= search_form_for q do |f| %>
-  <%= f.label :検索ワード %>
-  <%= f.collection_select :genre_id_eq, @genres, :id, :genre_name, :include_blank => '指定なし' %>
-  <%= f.search_field :title_or_material_cont %>
+<div class="search">
+  <%= search_form_for q do |f| %>
+    <%= f.label :検索ワード %>
+    <%= f.collection_select :genre_id_eq, @genres, :id, :genre_name, :include_blank => '指定なし' %>
+    <%= f.search_field :title_or_material_cont %>
 
-  <button type="submit">
-    <i class="fas fa-search"></i>
-  </button>
+    <button type="submit">
+      <i class="fas fa-search"></i>
+    </button>
 
-<% end %>
+  <% end %>
+</div>
 
+<div class="tag">
+  <% if @tags.present? %>
+    <% @tags.each do |tag| %>
+      <%= link_to "#{tag.name}(#{tag.taggings_count})", posts_path(tag_name: tag.name), data: {"turbolinks" => false} %>
+    <% end %>
+  <% else %>
+  <p><strong>登録されているタグはありません</strong></p>
+  <% end %>
+</div>
