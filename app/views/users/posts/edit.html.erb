@@ -49,9 +49,9 @@
 
 recipes.count = (作り方は<%= @post.recipes.count %>件です)
 
-    <% @post.recipes.each.with_index(1) do |recipe, index| %>
-    <%= f.fields_for :recipes, recipe do |r| %>
-    <div class="row">
+  <div class="row">
+  <% @post.recipes.each.with_index(1) do |recipe, index| %>
+    <%= f.fields_for :recipes, @post.recipes do |r| %>
       <div class="col-md-4">
         <table class="table table-borderless">
           <thead>
@@ -72,9 +72,9 @@ recipes.count = (作り方は<%= @post.recipes.count %>件です)
           </tbody>
         </table>
       </div>
-    </div>
     <% end %>
   <% end %>
+  </div>
 
 
     <div class="text-right">
