@@ -14,8 +14,8 @@
           <td><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, include_blank: "選択して下さい" %></td>
         </tr>
         <tr>
-          <td>タグ</td>
-          <td><%= f.text_field :tag_list, value: @post.tag_list.join(',') %></td>
+          <td>タグ ※任意</td>
+          <td><%= f.text_field :tag_list, value: @post.tag_list.join(','), data: {role: "tagsinput"}, placeholder: "5個まで登録可能です" %></td>
         </tr>
         <tr>
           <td>お弁当完成画像</td>
@@ -47,10 +47,10 @@
     </div>
   </div>
 
+  <div class="row">
   <% 1.upto(6) do |num| %>
     <%= f.fields_for :recipes, @post.recipes.build do |r| %>
-    <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-">
         <table class="table table-borderless">
           <thead>
             <tr>
@@ -70,9 +70,9 @@
           </tbody>
         </table>
       </div>
-    </div>
     <% end %>
   <% end %>
+  </div>
 
     <div class="text-right">
       <%= f.submit "投稿する", class: 'btn btn-primary btn-sm' %>
