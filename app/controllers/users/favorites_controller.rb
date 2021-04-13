@@ -1,7 +1,7 @@
 class Users::FavoritesController < ApplicationController
 
   def index
-    @posts = Post.page(params[:page]).per(6)
+    @favorites = current_user.favorite_posts.page(params[:page]).per(6)
   end
 
   def create

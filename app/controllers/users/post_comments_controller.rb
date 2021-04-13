@@ -1,8 +1,7 @@
 class Users::PostCommentsController < ApplicationController
 
   def index
-    @post_comments = PostComment.page(params[:page]).per(6)
-    @comments = @post.post_comments
+    @post_comments = current_user.post_comments_post.page(params[:page]).per(6)
   end
 
   def create

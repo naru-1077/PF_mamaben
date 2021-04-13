@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-md-12">
 
-      <% if post_comment.user == current_user %>
-        <p><strong>コメント履歴一覧</strong>(全<%= @post.post_comments.comment.count %>件)</p>
-        <% @post.post_comments.each do |post_comment| %>
+      <% if @post_comments.user == current_user %>
+        <p><strong>コメント履歴一覧</strong>(全<%= @post_comments.count %>件)</p>
+        <% @post_comments.each do |post_comment| %>
           <table class= "post_comment-index d-inline-block">
             <tr>
               <td>
@@ -18,26 +18,31 @@
             </tr>
           </table>
         <% end %>
+        <div class="row">
+    <div class="center-block mx-auto">
+      <%= paginate @post_comments %>
+    </div>
+    </div>
       <% else %>
-        <p><strong>コメント履歴一覧</strong>(全<%= @post.post_comments.comment.count %>件)</p>
-        <% @post.post_comments.each do |post_comment| %>
+        <p><strong>コメント一覧</strong>(全<%= @post_comments.count %>件)</p>
+        <% @post_comments.each do |post_comment| %>
           <table class= "d-inline-block">
             <tr>
-              <td><%= link_to "#{@post.user.name}", posts_path, data: {"turbolinks" => false} %></td>
+              <td><%= link_to "#{post_comment.user.name}", posts_path, data: {"turbolinks" => false} %></td>
             </tr>
             <tr>
-              <td>コメント<%= post_comment.comment %></td>
+              <td>コメント<%= post_comment %></td>
             </tr>
           </table>
         <% end %>
       <% end %>
-   </div>
+
+    </div>
   </div>
 
-  <br>
   <div class="row">
     <div class="center-block mx-auto">
-      <%= paginate @items %>
+      <%= paginate @post_comments %>
     </div>
   </div>
 
