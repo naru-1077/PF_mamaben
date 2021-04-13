@@ -6,10 +6,14 @@ class Users::PostsController < ApplicationController
     # @genre = Genre.find(params[:id]) if params[:id]
     @genres = Genre.all
     @q = Post.ransack(params[:q])
-    @posts_search = @q.result.page(params[:page]).per(6)
+    post = @q.result
+    @post_count = post.size
+    @posts_search = post.page(params[:page]).per(6)
     @tags = Post.tag_counts_on(:tags).most_used(20)
     if !params[:tag_name].blank? # タグ検索用
-      @posts_search = Post.tagged_with(params[:tag_name]).page(params[:page]).per(6) # タグに紐付く投稿
+      post = Post.tagged_with(params[:tag_name])
+      @post_count = post.size
+      @posts_search = post.page(params[:page]).per(6) # タグに紐付く投稿
     end
   end
 
@@ -41,6 +45,11 @@ class Users::PostsController < ApplicationController
 
   def edit
    @post = Post.find(params[:id])
+   if @post.recipes.count < 6
+     (@post.recipes.count..5).each do |recipe|
+       @post.recipes.push(Recipe.new)
+     end
+   end
   end
 
   def update

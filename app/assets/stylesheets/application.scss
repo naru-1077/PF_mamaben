@@ -78,8 +78,7 @@ footer {
 // トップページ
 .main-visual {
   width: 100%;
-  height: 400px;
-  margin-top: 40px;
+  height: 450px;
   margin-bottom: 40px;
   background-image: url(top.jpg);
   background-size: cover;
@@ -89,7 +88,7 @@ footer {
 // トップページ
 .main-visual-content {
   width: 100%;
-  height: 400px;
+  height: 450px;
   color: white;
   font-size: 20px;
   text-align: center;
@@ -161,9 +160,15 @@ footer {
   background-color: #faedc5;
 }
 
+// コメント一覧
+.post_comment-index {
+  background-color: #faedc5;
+}
 
-
-
+// お気に入り一覧
+.favorite-index {
+  background-color: #faedc5;
+}
 
 /*========= ナビゲーションのためのCSS ===============*/
 
