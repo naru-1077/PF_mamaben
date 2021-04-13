@@ -26,10 +26,10 @@ scope module: :users do
     patch "/users/withdraw" => "users#withdraw"
     get "/users/my_page/edit" => "users#edit"
     patch "/users/update" => "users#update"
+    get "/posts/:id/favorites" => "favorites#index", as: "post_favorite"
 
     resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
-      resources :favorites, only: [:index]
       resources :post_comments, only: [:index, :new, :create, :edit, :update, :destroy]
     end
   end

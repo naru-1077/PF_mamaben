@@ -1,5 +1,10 @@
 class Users::PostCommentsController < ApplicationController
 
+  def index
+    @post_comments = PostComment.page(params[:page]).per(6)
+    @comments = @post.post_comments
+  end
+
   def create
     @post_comments = PostComment.where(post_id: params[:post_id])
     count = 0
@@ -14,14 +19,12 @@ class Users::PostCommentsController < ApplicationController
       @comment = current_user.post_comments.new(post_comment_params)
       @comment.post_id = params[:post_id]
       @comment.save
-      redirect_to request.referer
     end
   end
 
   def destroy
     @comment = PostComment.find_by(id: params[:id], post_id: params[:post_id])
     @comment.destroy
-    redirect_to request.referer
   end
 
   private

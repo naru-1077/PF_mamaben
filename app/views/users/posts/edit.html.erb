@@ -15,7 +15,7 @@
         </tr>
         <tr>
           <td>タグ</td>
-          <td><%= f.text_field :tag_list, value: @post.tag_list.join(',') %></td>
+          <td><%= f.text_field :tag_list, value: @post.tag_list.join(','), data: {role: "tagsinput"}, placeholder: "5個まで登録可能です" %></td>
         </tr>
         <tr>
           <td>お弁当完成画像</td>
@@ -51,7 +51,7 @@ recipes.count = (作り方は<%= @post.recipes.count %>件です)
 
   <div class="row">
   <% @post.recipes.each.with_index(1) do |recipe, index| %>
-    <%= f.fields_for :recipes, @post.recipes do |r| %>
+    <%= f.fields_for :recipes, recipe do |r| %>
       <div class="col-md-4">
         <table class="table table-borderless">
           <thead>
