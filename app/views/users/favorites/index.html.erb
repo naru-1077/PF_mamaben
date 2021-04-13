@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-12">
 
-      <p><strong>お気に入り一覧</strong>(全<%= @post.favorites.count %>件)</p>
-        <% @posts.each do |post| %>
+      <p><strong>お気に入り一覧</strong>(全<%= @favorites.count %>件)</p>
+        <% @favorites.each do |post| %>
           <table class= "favorite-index d-inline-block">
             <tr>
               <td>
@@ -34,7 +34,7 @@
         <% end %>
 
         <div class="text-center">
-          <%= paginate @post_favorites %>
+          <%= paginate @favorites %>
         </div>
 
     </div>
