@@ -4,7 +4,7 @@
 
       <p><strong>お気に入り一覧</strong>(全<%= @favorites.count %>件)</p>
         <% @favorites.each do |post| %>
-          <table class= "favorite-index d-inline-block">
+          <table class= "favorite-index d-inline-block table-bordered">
             <tr>
               <td>
                 <%= link_to post_path(post), data: {"turbolinks" => false} do %>
@@ -13,19 +13,23 @@
               </td>
             </tr>
             <tr>
-              <td><%= "アカウント名: #{post.user.name}さん" %></td>
-            </tr>
+            <% if current_user.id == post.user.id %>
+              <td>アカウント名：<%= "#{post.user.name}".truncate(18) %>さん</td>
+            <% else %>
+              <td>アカウント名：<%= link_to "#{post.user.name}".truncate(18), users_post_histories_path(post.user.id), data: {"turbolinks" => false} %>さん</td>
+            <% end %>
+          </tr>
             <tr>
               <td><%= "ジャンル: #{post.genre.genre_name}" %></td>
             </tr>
             <tr>
-              <td><%= "タイトル: #{post.title}" %></td>
+              <td><%= "タイトル: #{post.title}".truncate(18) %></td>
             </tr>
             <tr>
               <td><%= "お気に入り数: #{post.favorites.count}件" %></td>
             </tr>
             <tr>
-              <td><%= "コメント数: #{post.post_comments.count}件" %></td>
+              <td>コメント数：<%= link_to "#{post.post_comments.count}件", post_post_comments_path(post), data: {"turbolinks" => false} %></td>
             </tr>
             <tr>
               <td><%= "投稿日時: #{post.created_at.strftime('%Y/%m/%d')}" %></td>

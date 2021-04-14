@@ -2,40 +2,28 @@
   <div class="row">
     <div class="col-md-12">
 
-      <% if @post_comments.user == current_user %>
-        <p><strong>コメント履歴一覧</strong>(全<%= @post_comments.count %>件)</p>
+      <p><strong>コメント一覧</strong>(全<%= @post_comments.count %>件)</p>
         <% @post_comments.each do |post_comment| %>
-          <table class= "post_comment-index d-inline-block">
+          <table class= "comment-index d-inline-block table-bordered">
             <tr>
               <td>
-                <%= link_to post_path(@post), data: {"turbolinks" => false} do %>
-                  <%= attachment_image_tag @post, :image, format: 'jpeg', size: "360x200" %>
+                <%= link_to post_path(post_comment.post), data: {"turbolinks" => false} do %>
+                  <%= attachment_image_tag post_comment.post, :image, format: 'jpeg', size: "340x220" %>
                 <% end %>
               </td>
             </tr>
             <tr>
-              <td>コメント<%= post_comment.comment %></td>
+            <% if current_user.id == post_comment.user.id %>
+              <td>アカウント名：<%= "#{post_comment.user.name}".truncate(18) %>さん</td>
+            <% else %>
+              <td>アカウント名：<%= link_to "#{post_comment.user.name}".truncate(18), users_post_histories_path(post_comment.user.id), data: {"turbolinks" => false} %>さん</td>
+            <% end %>
+            </tr>
+            <tr>
+              <td>コメント:<%= post_comment.comment %></td>
             </tr>
           </table>
         <% end %>
-        <div class="row">
-    <div class="center-block mx-auto">
-      <%= paginate @post_comments %>
-    </div>
-    </div>
-      <% else %>
-        <p><strong>コメント一覧</strong>(全<%= @post_comments.count %>件)</p>
-        <% @post_comments.each do |post_comment| %>
-          <table class= "d-inline-block">
-            <tr>
-              <td><%= link_to "#{post_comment.user.name}", posts_path, data: {"turbolinks" => false} %></td>
-            </tr>
-            <tr>
-              <td>コメント<%= post_comment %></td>
-            </tr>
-          </table>
-        <% end %>
-      <% end %>
 
     </div>
   </div>

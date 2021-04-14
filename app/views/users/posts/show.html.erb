@@ -2,11 +2,16 @@
 
   <!--モデルpost-->
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-5.5">
       <table class="table table-borderless">
         <tr>
+        <% if current_user.id == @post.user.id %>
           <td>アカウント名</td>
-          <td><%= link_to "#{@post.user.name}", posts_path, data: {"turbolinks" => false} %></td>
+          <td><%= "#{@post.user.name}" %>さん</td>
+        <% else %>
+          <td>アカウント名</td>
+          <td><%= link_to "#{@post.user.name}", users_post_histories_path(@post.user.id), data: {"turbolinks" => false} %>さん</td>
+        <% end %>
         </tr>
         <tr>
           <td>ジャンル選択</td>
@@ -27,7 +32,7 @@
       </table>
     </div>
 
-    <div class="col-md-5">
+    <div class="col-md-6.5">
       <table class="table table-borderless">
         <tr>
           <td>タイトル名</td>
