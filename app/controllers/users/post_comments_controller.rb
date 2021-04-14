@@ -1,7 +1,7 @@
 class Users::PostCommentsController < ApplicationController
 
   def index
-    @post_comments = current_user.post_comments_post.page(params[:page]).per(6)
+    @post_comments = PostComment.where(post_id: params[:post_id]).page(params[:page]).per(6)
   end
 
   def create
@@ -24,6 +24,11 @@ class Users::PostCommentsController < ApplicationController
   def destroy
     @comment = PostComment.find_by(id: params[:id], post_id: params[:post_id])
     @comment.destroy
+  end
+
+  def my_comments
+    @post_comments = current_user.post_comments.page(params[:page]).per(6)
+    render action: :index
   end
 
   private

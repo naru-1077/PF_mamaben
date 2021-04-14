@@ -3,14 +3,7 @@
   <div class="row">
     <div class="col-md-12 px-0">
 
-      <div class="main-visual">
-        <div class="main-visual-content">
-          <p class="text-white">ようこそ、mama弁へ！</p>
-          <p class="text-white">このサイトは、お子様用のお弁当投稿をまとめたサイトになります。</p>
-          <p class="text-white">アカウントをお持ちでない方も、投稿の閲覧はできますが、</p>
-          <p class="text-white">ご自身で投稿することや、お気に入り登録にはアカウント登録が必要になります。</p>
-        </div>
-      </div>
+      <div class="main-visual"></div>
 
     </div>
   </div>
@@ -21,7 +14,7 @@
       <h3 class="fas fa-utensils">新着投稿</h3>
       <div class="new-posts">
         <% @posts.each do |post| %>
-          <table class= "top d-inline-block">
+          <table class= "top d-inline-block text-left table-bordered">
             <tr>
               <td>
                 <%= link_to post_path(post), data: {"turbolinks" => false} do %>
@@ -30,19 +23,19 @@
               </td>
             </tr>
             <tr>
-              <td><%= "アカウント名: #{post.user.name}さん" %></td>
+              <td>アカウント名：<%= link_to "#{post.user.name}さん".truncate(18), posts_path, data: {"turbolinks" => false} %></td>
             </tr>
             <tr>
               <td><%= "ジャンル: #{post.genre.genre_name}" %></td>
             </tr>
             <tr>
-              <td><%= "タイトル: #{post.title}" %></td>
+              <td><%= "タイトル: #{post.title}".truncate(18) %></td>
             </tr>
             <tr>
               <td><%= "お気に入り数: #{post.favorites.count}件" %></td>
             </tr>
             <tr>
-              <td><%= "コメント数: #{post.post_comments.count}件" %></td>
+              <td>コメント数：<%= link_to "#{post.post_comments.count}件", posts_path, data: {"turbolinks" => false} %></td>
             </tr>
             <tr>
               <td><%= "投稿日時: #{post.created_at.strftime('%Y/%m/%d')}" %></td>
@@ -54,9 +47,9 @@
         <h3 class="fas fa-utensils">お気に入り数ランキング</h3>
         <div class="ranking-posts">
           <% @all_ranks.each_with_index do |post, idx| %>
-            <table class= "top d-inline-block">
+            <table class= "top d-inline-block text-left table-bordered">
               <tr>
-                <td class="ranking"><%= "第#{idx + 1}位" %></td>
+                <td class="ranking text-center">🍳<%= "第#{idx + 1}位" %>🍳</td>
               </tr>
               <tr>
                 <td>
@@ -66,7 +59,7 @@
                 </td>
               </tr>
               <tr>
-                <td><%= "アカウント名: #{post.user.name}さん" %></td>
+                <td>アカウント名：<%= link_to "#{post.user.name}さん", posts_path, data: {"turbolinks" => false} %></td>
               </tr>
               <tr>
                 <td><%= "ジャンル: #{post.genre.genre_name}" %></td>
@@ -78,7 +71,7 @@
                 <td><%= "お気に入り数: #{post.favorites.count}件" %></td>
               </tr>
               <tr>
-                <td><%= "コメント数: #{post.post_comments.count}件" %></td>
+                <td>コメント数：<%= link_to "#{post.post_comments.count}件", posts_path, data: {"turbolinks" => false} %></td>
               </tr>
               <tr>
                 <td><%= "投稿日時: #{post.created_at.strftime('%Y/%m/%d')}" %></td>

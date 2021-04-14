@@ -1,7 +1,15 @@
 class Users::UsersController < ApplicationController
 
+  # def show
+  #   if params[:id] == nil
+  #     @user = current_user
+  #   else
+  #     @user = User.find(params[:id])
+  #   end
+  # end
+
   def show
-    @user = current_user
+      @user = current_user
   end
 
   def edit
@@ -26,6 +34,11 @@ class Users::UsersController < ApplicationController
     @user.update(withdraw_status: true)
     reset_session
     redirect_to root_path
+  end
+
+  def post_histories
+      @user = User.find(params[:id])
+      @posts = @user.posts.page(params[:page]).per(6)
   end
 
   private

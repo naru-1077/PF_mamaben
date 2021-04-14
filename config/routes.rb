@@ -25,8 +25,10 @@ scope module: :users do
     get "/users/unsubscribe" => "users#unsubscribe"
     patch "/users/withdraw" => "users#withdraw"
     get "/users/my_page/edit" => "users#edit"
+    get "/users/:id/" => "users#post_histories", as: "users_post_histories"
     patch "/users/update" => "users#update"
     get "/posts/:id/favorites" => "favorites#index", as: "post_favorite"
+    get "my_comments" => "post_comments#my_comments"
 
     resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
