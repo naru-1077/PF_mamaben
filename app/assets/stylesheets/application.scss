@@ -79,7 +79,7 @@ footer {
   width: 100%;
   height: 450px;
   margin-bottom: 40px;
-  background-image: image-url(top.png);
+  background-image: image-url("top.png");
   background-size: cover;
   background-position: center;
 }
@@ -113,7 +113,7 @@ footer {
 
 // アバウト画面
 .about-image1 {
-  background-image: image-url(about1.png);
+  background-image: image-url("about1.png");
   height: 300px;
   background-size: cover;
   background-position: center;
@@ -121,7 +121,7 @@ footer {
 
 // アバウト画面
 .about-image2 {
-  background-image: image-url(about2.png);
+  background-image: image-url("about2.png");
   height: 300px;
   background-size: cover;
   background-position: top center;
