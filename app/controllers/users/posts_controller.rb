@@ -26,7 +26,13 @@ class Users::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    create_params = post_params
+    for i in 0..5 do
+      if create_params["recipes_attributes"][i.to_s]["recipe_image"] == "{}" and create_params["recipes_attributes"][i.to_s]["recipe"].blank?
+        create_params["recipes_attributes"][i.to_s]["_destroy"] = "1"
+      end
+    end
+    @post = Post.new(create_params)
     @post.user = current_user
     if @post.save
       redirect_to post_path(@post)
@@ -54,7 +60,13 @@ class Users::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(update_post_params)
+    update_params = update_post_params
+    for i in 0..5 do
+      if update_params["recipes_attributes"][i.to_s]["recipe_image"] == "{}" and update_params["recipes_attributes"][i.to_s]["recipe"].blank?
+        update_params["recipes_attributes"][i.to_s]["_destroy"] = "1"
+      end
+    end
+    if @post.update(update_params)
       redirect_to post_path(@post)
     else
       render :edit
@@ -75,6 +87,5 @@ class Users::PostsController < ApplicationController
   def update_post_params
       params.require(:post).permit(:image, :title, :introduction, :material, :genre_id, :tag_list, recipes_attributes: [:recipe_image, :recipe, :_destroy, :id])
   end
-
 
 end
