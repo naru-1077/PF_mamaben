@@ -74,3 +74,8 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'ransack'
 gem 'cocoon'
 gem 'acts-as-taggable-on', '~> 6.0'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
