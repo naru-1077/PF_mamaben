@@ -10,7 +10,7 @@
           <td><%= "#{@post.user.name}" %>さん</td>
         <% else %>
           <td>アカウント名</td>
-          <td><%= link_to "#{@post.user.name}", users_post_histories_path(@post.user.id), data: {"turbolinks" => false} %>さん</td>
+          <td><%= link_to "#{@post.user.name}", users_post_histories_path(@post.user.id) %>さん</td>
         <% end %>
         </tr>
         <tr>
@@ -53,6 +53,7 @@
   <div class="row">
     <% @post.recipes.each_with_index do |recipe, idx| %>
       <div class="col-md-4">
+        <% if recipe.present? %>
         <table class="table table-borderless">
           <thead>
             <tr>
@@ -68,14 +69,15 @@
             </tr>
           </tbody>
         </table>
+        <% end %>
       </div>
     <% end %>
   </div>
 
     <div class="text-center">
       <% if current_user == @post.user %>
-        <%= link_to '編集する', edit_post_path(@post), class:"btn btn-success", data: {"turbolinks" => false} %>
-        <%= link_to '削除する', post_path(@post), class:"btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか?", data: {"turbolinks" => false} %>
+        <%= link_to '編集する', edit_post_path(@post), class:"btn btn-success" %>
+        <%= link_to '削除する', post_path(@post), class:"btn btn-danger", method: :delete, "data-confirm" => "本当に削除しますか?" %>
       <% else %>
         <div class="my_comment">
           <%= render "users/post_comments/my_comment", post_comments: @post.post_comments %>

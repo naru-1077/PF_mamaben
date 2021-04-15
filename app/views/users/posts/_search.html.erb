@@ -18,7 +18,7 @@
 <div class="tag">
   <% if @tags.present? %>
     <% @tags.each do |tag| %>
-      <%= link_to "##{tag.name}(#{tag.taggings_count})", posts_path(tag_name: tag.name), data: {"turbolinks" => false} %><br>
+      <%= link_to "##{tag.name}(#{tag.taggings_count})", posts_path(tag_name: tag.name) %><br>
     <% end %>
   <% else %>
   <p><strong>登録されているタグはありません</strong></p>
@@ -26,5 +26,5 @@
 </div>
 
 <div class="new-post">
-  <%= link_to '投稿してみる', new_post_path, class:"btn btn-primary", data: {"turbolinks" => false} %>
+  <%= link_to '投稿してみる', new_post_path, class:"btn btn-primary" %>
 </div>

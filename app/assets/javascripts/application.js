@@ -18,22 +18,22 @@
 
 //= require rails-ujs
 //= require activestorage
-// require turbolinks
+//= require turbolinks
 //= require_tree .
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 $(".openbtn").click(function () {//ボタンがクリックされたら
 	$(this).toggleClass('active');//ボタン自身に activeクラスを付与し
     $("#g-nav").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
 });
 });
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 $("#g-nav a").click(function () {//ナビゲーションのリンクがクリックされたら
     $(".openbtn").removeClass('active');//ボタンの activeクラスを除去し
     $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
 });
-});
+})
 
 // レシピ完成画像プレビュー
 $(document).ready(function () {
