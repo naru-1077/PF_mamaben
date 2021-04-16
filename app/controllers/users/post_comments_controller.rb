@@ -1,5 +1,7 @@
 class Users::PostCommentsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @post_comments = PostComment.where(post_id: params[:post_id]).page(params[:page]).per(6)
   end
