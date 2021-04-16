@@ -74,13 +74,59 @@ footer {
   padding: 10px 0;
 }
 
-// トップページ
-.main-visual {
+// トップページ slick
+
+.slick-track {
+  width: 100%;
+  height: 450px;
+}
+
+.image1 {
   width: 100%;
   height: 450px;
   margin-bottom: 40px;
   background-image: image-url("top.png");
   background-size: cover;
+  background-position: center;
+}
+
+.image2 {
+  width: 100%;
+  height: 450px;
+  margin-bottom: 40px;
+  background-image: image-url("image2.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.image3 {
+  width: 100%;
+  height: 450px;
+  margin-bottom: 40px;
+  background-image: image-url("image3.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.image4 {
+  width: 100%;
+  height: 450px;
+  margin-bottom: 40px;
+  background-image: image-url("image4.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.image5 {
+  width: 100%;
+  height: 450px;
+  margin-bottom: 40px;
+  background-image: image-url("image5.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
   background-position: center;
 }
 
@@ -166,6 +212,96 @@ footer {
 .favorite-index {
   background-color: #faedc5;
   border-color: #AA5336;
+}
+
+/*========= ページトップのためのCSS ===============*/
+/*リンクを右下に固定*/
+#page-top {
+	position: fixed;
+	right: 10px;
+	bottom:30px;
+	z-index: 2;
+    /*はじめは非表示*/
+	opacity: 0;
+	transform: translateY(150px);
+}
+
+/*　上に上がる動き　*/
+#page-top.UpMove{
+	animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+	transform: translateY(150px);
+  }
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+/*　下に下がる動き　*/
+#page-top.DownMove{
+	animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime{
+  from {
+  	opacity: 1;
+	transform: translateY(0);
+  }
+  to {
+  	opacity: 1;
+	transform: translateY(150px);
+  }
+}
+
+/*画像の切り替えと動き*/
+#page-top a {
+    /*aタグの形状*/
+	display: block;
+	width: 100px;
+	height: 100px;
+	color: #333;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size:0.6rem;
+    /*背景画像の指定*/
+	background: image-url("scroll-logo1.png") no-repeat center;
+	background-size: contain;
+}
+
+#page-top.floatAnime a{
+	width: 100px;
+	height: 130px;
+    /*背景画像の指定*/
+	background: image-url("scroll-logo2.png") no-repeat center;
+	background-size: contain;
+    /*アニメーションの指定*/
+	animation: floatAnime 2s linear infinite;
+	opacity: 0;
+}
+
+@keyframes floatAnime {
+  0% { transform: translateX(0); opacity: 0; }
+  25% { transform: translateX(-6px);opacity: 1; }
+  50% { transform: translateX(0) }
+  100% { transform: translateX(6px);opacity: 1; }
+}
+
+/*Page Topと書かれたテキストの位置*/
+#page-top span{
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+	color: #666;
+}
+/*検証のためのCSS*/
+section{
+padding: 500px 0;
 }
 
 /*========= ナビゲーションのためのCSS ===============*/
