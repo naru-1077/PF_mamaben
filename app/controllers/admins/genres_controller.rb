@@ -10,7 +10,7 @@ class Admins::GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to admins_genres_path, notice: "You have created genre successfully."
+      redirect_to admins_genres_path
     else
       @genres = Genre.all
       render :index
