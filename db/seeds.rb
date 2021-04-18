@@ -16,4 +16,4 @@ User.create!(
   email: 'naru@naru',
   password: '000000',
   withdraw_status: 'false'
-  )
+)
