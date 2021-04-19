@@ -4,6 +4,9 @@
 
       <h2 class="title">ジャンル一覧・追加</h2>
         <%= form_with model: [:admins, @genre], local: true do |f| %>
+        <% @genre.errors.full_messages.each do |message| %>
+          <p>※<%= message %></p>
+        <% end %>
         <table class= "table table-hover table-inverse">
           <thead>
             <tr>

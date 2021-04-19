@@ -2,6 +2,10 @@
 
   <!--モデルpost-->
   <%= form_with model: @post, local: true do |f| %>
+  <% @post.errors.full_messages.each do |message| %>
+    <p>※<%= message %></p>
+  <% end %>
+
   <div class="row">
     <div class="col-md-5.5">
       <table class="table table-borderless">
@@ -50,7 +54,8 @@
   <div class="row">
   <% 1.upto(6) do |num| %>
     <%= f.fields_for :recipes, @post.recipes.build do |r| %>
-      <div class="col-md-">
+
+      <div class="col-md-4">
         <table class="table table-borderless">
           <thead>
             <tr>

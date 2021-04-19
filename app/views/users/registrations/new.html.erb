@@ -3,7 +3,7 @@
     <div class="col-md-12">
 
 　　　<div class="title text-center">
-        <%= link_to image_tag(src= "logo.png"), "/" %>
+        <%= image_tag(src= "logo.png") %>
         <h2 class="title">mama弁アカウントを作成<h2>
         <p class="title-text">mama弁のサイトでご利用いただける「mama弁アカウント」を作成します<p>
         <p class="title-text">すでにアカウントをお持ちですか？<%= link_to "ログイン", new_user_session_path %><p>
@@ -40,7 +40,7 @@
               </tr>
               <tr>
                 <td></td>
-                <td><%= f.submit "　　　アカウント作成する　　　", class: 'btn btn-primary btn-sm' %></td>
+                <td><%= f.submit "アカウント作成する", class: 'btn btn-primary btn-sm' %></td>
               </tr>
             </thead>
           </table>

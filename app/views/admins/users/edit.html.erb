@@ -4,6 +4,9 @@
 
 　　<h2 class="title"><%= @user.name %>さんの会員情報編集</h2>
 　　<%= form_with model: @user, url: admins_user_path(@user), local: true do |f| %>
+　　<% @user.errors.full_messages.each do |message| %>
+      <p>※<%= message %></p>
+    <% end %>
 
 　　  <div class="row">
         <div class="col-md-2"></div>

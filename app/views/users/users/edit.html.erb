@@ -3,6 +3,9 @@
     <div class="col-md-12">
 
     　<%= form_with model: @user, url: users_update_path, local: true do |f| %>
+    　<% @user.errors.full_messages.each do |message| %>
+        <p>※<%= message %></p>
+      <% end %>
       <table class= "table table-hover table-inverse table-borderless">
     　　  <tr>
           <td>アカウント名</td>
@@ -22,7 +25,7 @@
         </tr>
       </table>
         <div class="text-center">
-          <%= f.submit "編集内容を保存する", class: 'btn btn-primary btn-sm' %>
+          <%= f.submit "変更を保存", class: 'btn btn-primary btn-sm' %>
         </div>
       <% end %>
 

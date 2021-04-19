@@ -4,6 +4,9 @@
 
       <h2 class="title">ジャンル編集</h2>
         <%= form_with model: [:admins, @genre], url: admins_genre_path(@genre), local: true do |f| %>
+        <% @genre.errors.full_messages.each do |message| %>
+          <p>※<%= message %></p>
+        <% end %>
         <table class= "table table-borderless">
           <thead>
       　　    <tr>

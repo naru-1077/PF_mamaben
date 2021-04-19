@@ -39,7 +39,6 @@ class Users::PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post)
     else
-      @post = Post.new
       render :new
     end
   end
