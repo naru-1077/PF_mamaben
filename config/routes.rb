@@ -12,7 +12,15 @@ Rails.application.routes.draw do
 
 namespace :admins do
     get "/" => "users#index"
-    resources :users, only: [:index, :show, :edit, :update]
+
+
+
+    resources :users, only: [:index, :show, :edit, :update] do
+      member do
+        get 'post_histories' #   get "/users/:id/post_histories" => 'users#post_histories'
+        get 'posts_by_own_comments' #   get "/users/:id/posts_by_own_comments" => 'users#posts_by_own_comments'
+      end
+    end
 
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
 

@@ -29,8 +29,8 @@
           <tr>
             <td></td>
             <td><%= link_to "編集する", edit_admins_user_path(@user), class: 'btn btn-success btn-sm' %></td>
-            <td><p><strong>投稿履歴</strong><%= link_to "一覧を見る", users_post_histories_path(@user.id), class: 'btn btn-primary btn-sm' %></td>
-            <td><p><strong>コメント履歴</strong><%= link_to "一覧を見る", post_post_comments_path(@user), class: 'btn btn-info btn-sm' %></td>
+            <td><p><strong>投稿履歴</strong><%= link_to "一覧を見る", post_histories_admins_user_path(@user), class: 'btn btn-primary btn-sm' %></td>
+            <td><p><strong>コメント履歴</strong><%= link_to "一覧を見る", posts_by_own_comments_admins_user_path(@user), class: 'btn btn-info btn-sm' %></td>
           </tr>
         </tbody>
       </table>

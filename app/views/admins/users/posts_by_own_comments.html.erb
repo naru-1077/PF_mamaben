@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <p><strong>コメント一覧</strong>(全<%= @posts.count %>件)</p>
+        <% @posts.each do |post| %>
+          <table class= "comment-index d-inline-block table-bordered">
+            <tr>
+              <td><%= attachment_image_tag post, :image, format: 'jpeg', size: "340x220" %></td>
+            </tr>
+            <tr>
+              <td>アカウント名：<%= "#{post.user.name}".truncate(18) %>さん</td>
+            </tr>
+            <tr>
+            <% post.post_comments.each do |comment| %>
+              <% if @user.id == comment.user_id %>
+                <td>コメント:<%= comment.comment %></td>
+              <% end %>
+            <% end %>
+            </tr>
+          </table>
+        <% end %>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="center-block mx-auto">
+      <%= paginate @posts %>
+    </div>
+  </div>
+
+</div>

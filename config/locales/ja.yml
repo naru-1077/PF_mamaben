@@ -11,13 +11,13 @@ ja:
       post_comment:
         comment: コメント
       post:
-        image: 完成画像
-        title: タイトル
+        image: お弁当完成画像
+        title: タイトル名
         introduction: 投稿紹介文
         material: 材料
-        genre: ジャンル名
+        genre: ジャンル
       recipe:
         recipe_image: 作り方画像
         recipe: 作り方
       genre:
-        genre_name: ジャンル名
+        genre_name: ジャンル
