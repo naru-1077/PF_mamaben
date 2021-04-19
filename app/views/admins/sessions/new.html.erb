@@ -8,7 +8,7 @@
       </div>
 
       <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
-        <%= render "users/shared/error_messages", resource: resource %>
+        <p><%= flash[:alert]%></p>
       <br>
 
       <div class="row">
