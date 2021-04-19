@@ -85,6 +85,7 @@
         </div>
         <div class="comment_form">
           <%= form_with model:[@post, @post_comment], url: post_post_comments_path(@post), remote: true do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
             <%= f.text_area :comment, size:"110x5", rows:'5',placeholder: "コメントをここに" %>
             <%= f.submit "コメントを送信", class: 'btn btn-primary btn-sm' %>
           <% end %>

@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        user_name: アカウント名
+        email: メールアドレス
+        password: パスワード
+        withdraw_status: 会員ステータス
+      post_comment:
+        comment: コメント
+      post:
+        image: 完成画像
+        title: タイトル
+        introduction: 投稿紹介文
+        material: 材料
+        genre: ジャンル名
+      recipe:
+        recipe_image: 作り方画像
+        recipe: 作り方
+      genre:
+        genre_name: ジャンル名

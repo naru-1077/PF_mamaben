@@ -2,6 +2,9 @@
 
   <!--モデルpost-->
   <%= form_with model: @post, url: post_path(@post), local: true do |f| %>
+  <% @post.errors.full_messages.each do |message| %>
+    <p>※<%= message %></p>
+  <% end %>
   <div class="row">
     <div class="col-md-5.5">
       <table class="table table-borderless">
@@ -47,11 +50,10 @@
     </div>
   </div>
 
-recipes.count = (作り方は<%= @post.recipes.count %>件です)
-
   <div class="row">
   <% @post.recipes.each.with_index(1) do |recipe, index| %>
     <%= f.fields_for :recipes, recipe do |r| %>
+    <%= render "users/shared/error_messages", resource: resource %>
       <div class="col-md-4">
         <table class="table table-borderless">
           <thead>
