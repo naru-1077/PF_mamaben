@@ -12,7 +12,7 @@
             <tr>
               <td style="width:20%">ジャンル名</td>
               <td style="width:20%"><%= f.text_field :genre_name, placeholder: "ジャンル名", size: 25 %></td>
-              <td><%= f.submit "新規登録", class: 'btn btn-primary btn-sm' %></td>
+              <td><%= image_submit_tag("entry.png") %></td>
             </tr>
           </thead>
         </table>
@@ -29,8 +29,8 @@
             <tr>
               <td><%= genre.genre_name %></td>
               <td class="text-center">
-                <%= link_to "編集する", edit_admins_genre_path(genre), class: "btn btn-success btn-sm" %>
-                <%= link_to "削除する", admins_genre_path(genre), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "このジャンルを削除しますか?" %>
+                <%= link_to image_tag(src= "edit.png"), edit_admins_genre_path(genre) %>
+                <%= link_to image_tag(src= "destroy.png"), admins_genre_path(genre), method: :delete, "data-confirm" => "このジャンルを削除しますか?" %>
               </td>
             </tr>
             <% end %>

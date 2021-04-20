@@ -5,8 +5,8 @@
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td style="width:25%"><p><strong>登録情報</strong><%= link_to "編集する", users_my_page_edit_path, class: "btn btn-success btn-sm" %></p></td>
-            <td><p><strong>退会</strong><%= link_to "退会画面へ", users_unsubscribe_path, class: "btn btn-danger btn-sm" %></p></td>
+            <td style="width:25%"><p><strong>登録情報</strong><%= link_to image_tag(src= "edit.png"), users_my_page_edit_path %>
+            <td><p><strong>退会</strong><%= link_to image_tag(src= "withdraw-view.png"), users_unsubscribe_path %></p></td>
           </tr>
         </tbody>
       </table>
@@ -31,9 +31,9 @@
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td><p><strong>投稿履歴</strong><%= link_to "一覧を見る", users_post_histories_path(current_user), class: "btn btn-primary btn-sm" %></p></td>
-            <td><p><strong>お気に入りリスト</strong><%= link_to "一覧を見る", post_favorite_path(current_user), class: "btn btn-warning btn-sm" %></p></td>
-            <td><p><strong>コメント履歴</strong><%= link_to "一覧を見る", my_comments_path, class: "btn btn-info btn-sm" %></p></td>
+            <td><p><strong>投稿履歴</strong><%= link_to image_tag(src= "look.png"), users_post_histories_path(current_user) %></p></td>
+            <td><p><strong>お気に入りリスト</strong><%= link_to image_tag(src= "look.png"), post_favorite_path(current_user) %></p></td>
+            <td><p><strong>コメント履歴</strong><%= link_to image_tag(src= "look.png"), my_comments_path %></p></td>
           </tr>
         </tbody>
       </table>
