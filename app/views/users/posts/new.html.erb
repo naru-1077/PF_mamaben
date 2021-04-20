@@ -11,7 +11,7 @@
       <table class="table table-borderless">
         <tr>
           <td>アカウント名</td>
-          <td><%= link_to "#{current_user.name}", new_post_path %></td>
+          <td><%= link_to "#{current_user.name}" %></td>
         </tr>
         <tr>
           <td>ジャンル選択</td>
@@ -80,7 +80,7 @@
   </div>
 
     <div class="text-right">
-      <%= f.submit "投稿する", class: 'btn btn-primary btn-sm' %>
+      <%= image_submit_tag("new-post1.png") %>
     </div>
 
   <!--form_withの閉じ-->
