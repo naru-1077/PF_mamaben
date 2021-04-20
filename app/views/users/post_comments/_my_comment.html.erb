@@ -1,7 +1,7 @@
 <% post_comments.each do |post_comment| %>
   <div class="text-left">
   <h2 class="title">↓自分のコメント↓</h2>
-  <%= post_comment.comment %>
+  <p><%= post_comment.comment %></p>
   <% if post_comment.user == current_user %>
     <%= link_to image_tag(src= "destroy.png"), post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか?" %>
   <% end %>

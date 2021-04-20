@@ -19,6 +19,13 @@
 @import 'font-awesome';
 @import 'tagsinput';
 
+@font-face{
+   font-family: "font";
+   src: font-url('irohamaru-Medium.ttf') format('truetype');
+   font-style: italic;
+   font-weight: bold;
+ }
+
 // ヘッダー
 header {
   width: 100%;
@@ -58,6 +65,7 @@ p, h2, h3, td, th {
 // 画面色
 body {
   background-color: #FEF8F6;
+  font-family: 'font';
 }
 
 // 画面色
@@ -202,11 +210,39 @@ footer {
 .comment-index {
   background-color: #faedc5;
   border-color: #AA5336;
+  width: 344px;
+  height: 350px;
 }
 
 // お気に入り一覧
 .favorite-index {
   background-color: #faedc5;
+  border-color: #AA5336;
+}
+
+/*========= ページネーションのためのCSS ===============*/
+
+.pagination>li>a {
+  border-color: #AA5336;     /*枠線の色*/
+  color: #AA5336;   /*文字の色を変える*/
+  background-color: #faedc5;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #faedc5;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+  color: #AA5336;
+  background-color: #F59D7F;
+}
+
+.page-item.active .page-link {
+  background-color: #AA5336;
   border-color: #AA5336;
 }
 
