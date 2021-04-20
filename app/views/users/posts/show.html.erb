@@ -88,7 +88,7 @@
           <% @post_comment.errors.full_messages.each do |message| %>
             <p>※<%= message %></p>
           <% end %>
-            <%= f.text_area :comment, size:"110x5", rows:'5',placeholder: "コメントをここに" %>
+            <%= f.text_area :comment, size:"110x5", rows:'5',placeholder: "80文字まで入力できます" %>
             <%= image_submit_tag("comment.png") %>
           <% end %>
         </div>
