@@ -36,7 +36,7 @@ $("#g-nav a").click(function () {//ナビゲーションのリンクがクリッ
 })
 
 // レシピ完成画像プレビュー
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 $('#post_image').on('change', function (e) {
 var reader = new FileReader();
 reader.onload = function (e) {
@@ -47,7 +47,7 @@ reader.readAsDataURL(e.target.files[0]);
 });
 
 // レシピ作り方画像プレビュー1
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 $('#post_recipes_attributes_0_recipe_image').on('change', function (e) {
 var reader = new FileReader();
 reader.onload = function (e) {
@@ -58,7 +58,7 @@ reader.readAsDataURL(e.target.files[0]);
 });
 
 // レシピ作り方画像プレビュー2
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 $('#post_recipes_attributes_1_recipe_image').on('change', function (e) {
 var reader = new FileReader();
 reader.onload = function (e) {
@@ -69,7 +69,7 @@ reader.readAsDataURL(e.target.files[0]);
 });
 
 // レシピ作り方画像プレビュー3
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 $('#post_recipes_attributes_2_recipe_image').on('change', function (e) {
 var reader = new FileReader();
 reader.onload = function (e) {
@@ -80,7 +80,7 @@ reader.readAsDataURL(e.target.files[0]);
 });
 
 // レシピ作り方画像プレビュー4
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 $('#post_recipes_attributes_3_recipe_image').on('change', function (e) {
 var reader = new FileReader();
 reader.onload = function (e) {
@@ -91,7 +91,7 @@ reader.readAsDataURL(e.target.files[0]);
 });
 
 // レシピ作り方画像プレビュー5
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 $('#post_recipes_attributes_4_recipe_image').on('change', function (e) {
 var reader = new FileReader();
 reader.onload = function (e) {
@@ -102,7 +102,7 @@ reader.readAsDataURL(e.target.files[0]);
 });
 
 // レシピ作り方画像プレビュー6
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 $('#post_recipes_attributes_5_recipe_image').on('change', function (e) {
 var reader = new FileReader();
 reader.onload = function (e) {

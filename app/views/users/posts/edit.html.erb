@@ -53,7 +53,7 @@
   <div class="row">
   <% @post.recipes.each.with_index(1) do |recipe, index| %>
     <%= f.fields_for :recipes, recipe do |r| %>
-    <%= render "users/shared/error_messages", resource: resource %>
+
       <div class="col-md-4">
         <table class="table table-borderless">
           <thead>
@@ -66,7 +66,7 @@
               <td><%= r.attachment_field  :recipe_image %></td>
             </tr>
             <tr>
-              <td><img id="preview_recipe1"></td>
+              <td><img id="preview_recipe<%= index %>"></td>
             </tr>
             <tr>
               <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
