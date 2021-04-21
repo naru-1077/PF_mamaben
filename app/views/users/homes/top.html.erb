@@ -29,7 +29,7 @@
               </td>
             </tr>
             <tr>
-              <td>アカウント名：<%= link_to "#{post.user.name}さん".truncate(18), users_post_histories_path(post.user.id) %></td>
+              <td>アカウント名：<%= link_to "#{post.user.name}".truncate(18), users_post_histories_path(post.user.id) %>さん</td>
             </tr>
             <tr>
               <td><%= "ジャンル: #{post.genre.genre_name}" %></td>
@@ -65,13 +65,13 @@
                 </td>
               </tr>
               <tr>
-                <td>アカウント名：<%= link_to "#{post.user.name}さん", users_post_histories_path(post.user.id) %></td>
+                <td>アカウント名：<%= link_to "#{post.user.name}".truncate(18), users_post_histories_path(post.user.id) %>さん</td>
               </tr>
               <tr>
                 <td><%= "ジャンル: #{post.genre.genre_name}" %></td>
               </tr>
               <tr>
-                <td><%= "タイトル: #{post.title}" %></td>
+                <td><%= "タイトル: #{post.title}".truncate(18) %></td>
               </tr>
               <tr>
                 <td><%= "お気に入り数: #{post.favorites.count}件" %></td>

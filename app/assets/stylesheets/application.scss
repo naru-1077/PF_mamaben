@@ -26,6 +26,8 @@
    font-weight: bold;
  }
 
+/*========= 全体 ===============*/
+
 // ヘッダー
 header {
   width: 100%;
@@ -53,7 +55,7 @@ header {
 }
 
 // 各ページ
-p, h2, h3, td, th {
+p, h2, h3, h4, td, th {
   color: #AA5336;
 }
 
@@ -81,6 +83,10 @@ footer {
   text-align: auto;
   padding: 10px 0;
 }
+
+/*========= USER ===============*/
+
+/*========= homes ===============*/
 
 // トップページ slick
 
@@ -136,13 +142,14 @@ footer {
 
 // トップページ
 .ranking-posts, .new-posts {
-  margin: 20px 0;
+  margin: 20px 0px;
 }
 
 // トップページ
 .top {
   background-color: #faedc5;
   border-color: #AA5336;
+  margin: 0px 5px;
 }
 
 // トップページ ランキング
@@ -182,6 +189,8 @@ footer {
   font-size: 20px;
 }
 
+/*========= posts ===============*/
+
 // 新規投稿preview
 #preview {
   height: 360px;
@@ -206,18 +215,53 @@ footer {
   margin: 20px;
 }
 
+// 投稿詳細
+.post-show {
+  width: 600px;
+}
+
+/*========= post_comments ===============*/
+
 // コメント一覧
 .comment-index {
   background-color: #faedc5;
   border-color: #AA5336;
   width: 344px;
   height: 350px;
+  margin: 5px 5px;
 }
+
+// コメントフォーム
+.comment-form {
+  margin-top: 10px;
+}
+
+/*========= faborites ===============*/
 
 // お気に入り一覧
 .favorite-index {
   background-color: #faedc5;
   border-color: #AA5336;
+  margin: 5px 5px;
+}
+
+// お気に入りボタン
+.favorite-btn {
+  margin-bottom: 10px;
+}
+
+/*========= user ===============*/
+
+// 詳細
+.user-show {
+  background-color: #faedc5;
+  border-color: #AA5336;
+}
+
+// 退会画面
+.unsubscribe {
+  margin-bottom: 135px;
+  margin-top: 135px;
 }
 
 /*========= ページネーションのためのCSS ===============*/

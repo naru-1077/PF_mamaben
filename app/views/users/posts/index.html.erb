@@ -6,13 +6,13 @@
     </div>
 
     <div class="col-md-9">
-      <p><strong>
+      <h4>
         <% if !params[:q] && params[:tag_name].blank? %>
           投稿一覧(全<%= @posts_all.count %>件)
         <% else %>
           検索結果(全<%= "#{@post_count} / #{@posts_all.count}" %>件)
         <% end %>
-      </strong></p>
+      </h4>
 
       <% @posts_search.each do |post| %>
         <table class= "post-index d-inline-block table-bordered">
@@ -51,8 +51,7 @@
     <!--colの閉じ-->
     </div>
 
-
-    <div class="text-center">
+    <div class="center-block mx-auto">
       <%= paginate @posts_search %>
     </div>
 
