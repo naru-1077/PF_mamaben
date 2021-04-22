@@ -14,15 +14,15 @@
           <td><%= "#{current_user.name}" %></td>
         </tr>
         <tr>
-          <td>ジャンル選択</td>
+          <td>ジャンル選択(※必須)</td>
           <td><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, include_blank: "選択して下さい" %></td>
         </tr>
         <tr>
-          <td>タグ ※任意</td>
+          <td>タグ</td>
           <td><%= f.text_field :tag_list, value: @post.tag_list.join(','), data: {role: "tagsinput"}, placeholder: "5個まで登録可能です" %></td>
         </tr>
         <tr>
-          <td>お弁当完成画像</td>
+          <td>お弁当完成画像(※必須)</td>
           <td><%= f.attachment_field :image %></td>
         </tr>
       </table>
@@ -36,15 +36,15 @@
     <div class="col-md-6.5">
       <table class="table table-borderless">
         <tr>
-          <td>タイトル名</td>
+          <td>タイトル名(※必須)</td>
           <td><%= f.text_field :title, placeholder: "タコさんウインナーと愉快な仲間たち", size: 50 %></td>
         </tr>
         <tr>
-          <td>投稿紹介文</td>
+          <td>投稿紹介文(※必須)</td>
           <td><%= f.text_area :introduction, placeholder: "子供の運動会用に作ってみました！", size: "50x10" %></td>
         </tr>
         <tr>
-          <td>材料</td>
+          <td>材料(※必須)</td>
           <td><%= f.text_area :material, placeholder: "<２人前>たまご:２個 ウインナー:１袋 砂糖:大さじ２ など", size: "50x10" %></td>
         </tr>
       </table>
