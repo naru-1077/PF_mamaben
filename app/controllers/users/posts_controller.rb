@@ -52,11 +52,11 @@ class Users::PostsController < ApplicationController
 
   def edit
    @post = Post.find(params[:id])
-   if @post.recipes.count < 6
-     (@post.recipes.count..5).each do |recipe|
-       @post.recipes.push(Recipe.new)
-     end
-   end
+  if @post.recipes.count < 6
+    (@post.recipes.count..5).each do |recipe|
+      @post.recipes.push(Recipe.new)
+    end
+  end
   end
 
   def update
@@ -86,7 +86,7 @@ class Users::PostsController < ApplicationController
   end
 
   def update_post_params
-      params.require(:post).permit(:image, :title, :introduction, :material, :genre_id, :tag_list, recipes_attributes: [:recipe_image, :recipe, :_destroy, :id])
+      params.require(:post).permit(:image, :title, :introduction, :material, :genre_id, :tag_list, recipes_attributes: [:recipe_image, :recipe, :_destroy, :id, :remove_recipe_image])
   end
 
 end
