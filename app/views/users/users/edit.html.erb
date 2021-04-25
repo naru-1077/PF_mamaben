@@ -3,30 +3,31 @@
     <div class="col-md-12">
 
     　<%= form_with model: @user, url: users_update_path, local: true do |f| %>
-    　<% @user.errors.full_messages.each do |message| %>
-        <p>※<%= message %></p>
-      <% end %>
-      <table class= "table table-hover table-inverse table-borderless">
-    　　  <tr>
-          <td>アカウント名</td>
-          <td><%= f.text_field :name, size: 50 %></td>
-    　　  </tr>
-    　　  <tr>
-          <td>メールアドレス</td>
-          <td><%= f.email_field :email, size: 50 %></td>
-        </tr>
-        <tr>
-          <td>パスワード(6文字以上)</td>
-          <td><%= f.password_field :password, size: 50 %></td>
-        </tr>
-        <tr>
-          <td>パスワード(確認用)</td>
-          <td><%= f.password_field :password_confirmation, size: 50 %></td>
-        </tr>
-      </table>
-        <div class="text-center">
-          <%= image_submit_tag("update.png") %>
-        </div>
+      　<% @user.errors.full_messages.each do |message| %>
+          <p>※<%= message %></p>
+        <% end %>
+
+          <table class= "user-edit table table-hover table-inverse table-borderless text-center" style="width: 60%">
+        　　  <tr>
+              <td>アカウント名</td>
+              <td><%= f.text_field :name, size: 50 %></td>
+        　　  </tr>
+        　　  <tr>
+              <td>メールアドレス</td>
+              <td><%= f.email_field :email, size: 50 %></td>
+            </tr>
+            <!--<tr>-->
+            <!--  <td>パスワード(6文字以上)</td>-->
+            <!--  <td><%#= f.password_field :password, size: 50 %></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--  <td>パスワード(確認用)</td>-->
+            <!--  <td><%#= f.password_field :password_confirmation, size: 50 %></td>-->
+            <!--</tr>-->
+          </table>
+          <div class="text-center">
+            <%= image_submit_tag("update.png") %>
+          </div>
       <% end %>
 
     </div>

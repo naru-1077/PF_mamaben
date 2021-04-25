@@ -4,7 +4,7 @@
 
       <h4><%= "#{@user.name}" %>さんのコメント一覧(全<%= @posts.count %>件)</h4>
         <% @posts.each do |post| %>
-          <table class= "comment-index d-inline-block table-bordered">
+          <table class= "comment-index d-inline-block table-borderless">
             <tr>
               <td><%= attachment_image_tag post, :image, format: 'jpeg', size: "340x220" %></td>
             </tr>
@@ -21,11 +21,12 @@
           </table>
         <% end %>
 
+    <!--colの閉じ-->
     </div>
 
-  <div class="center-block mx-auto">
-    <%= paginate @posts %>
-  </div>
+    <div class="center-block mx-auto">
+      <%= paginate @posts %>
+    </div>
 
   </div>
 </div>

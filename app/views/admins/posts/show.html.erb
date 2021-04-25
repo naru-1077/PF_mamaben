@@ -5,13 +5,8 @@
     <div class="col-md-5.5">
       <table class="table table-borderless">
         <tr>
-        <% if current_user.id == @post.user.id %>
           <td>アカウント名</td>
-          <td><%= "#{@post.user.name}" %>さん</td>
-        <% else %>
-          <td>アカウント名</td>
-          <td><%= link_to "#{@post.user.name}", users_post_histories_path(@post.user.id) %>さん</td>
-        <% end %>
+          <td><%= link_to "#{@post.user.name}", post_histories_admins_user_path(@post.user.id) %>さん</td>
         </tr>
         <tr>
           <td>ジャンル選択</td>
@@ -74,31 +69,8 @@
     <% end %>
   </div>
 
-  <div class="text-center">
-    <% if current_user == @post.user %>
-      <%= link_to image_tag(src= "edit.png"), edit_post_path(@post) %>
-      <%= link_to image_tag(src= "destroy.png"), post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか?" %>
-    <% else %>
-      <div class="my_comment">
-        <%= render "users/post_comments/my_comment", post_comments: @post.post_comments %>
-        <div id="comment_error"></div>
-      </div>
-      <div class="comment-form text-center">
-        <%= form_with model:[@post, @post_comment], url: post_post_comments_path(@post), remote: true do |f| %>
-          <% @post_comment.errors.full_messages.each do |message| %>
-            <p>※<%= message %></p>
-          <% end %>
-          <%= f.text_area :comment, size:"110x5", rows:'5',placeholder: "80文字まで入力できます(※コメントは1投稿につき1回までとなります)" %>
-          <div class="text-right">
-            <%= image_submit_tag("comment.png") %>
-          </div>
-        <% end %>
-      </div>
-      <div class="favorite-btn">
-        <%= render "users/favorites/favorite", post: @post %>
-      </div>
-    <!--if文の閉じ-->
-    <% end %>
+  <div class="text-center" style="margin-bottom: 10px">
+    <%= link_to image_tag(src= "destroy.png"), admins_post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか?" %>
   </div>
 
 </div>

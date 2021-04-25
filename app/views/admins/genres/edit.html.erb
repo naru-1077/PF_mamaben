@@ -4,18 +4,19 @@
 
       <h2 class="title">ジャンル編集</h2>
         <%= form_with model: [:admins, @genre], url: admins_genre_path(@genre), local: true do |f| %>
-        <% @genre.errors.full_messages.each do |message| %>
-          <p>※<%= message %></p>
-        <% end %>
-        <table class= "table table-borderless">
-          <thead>
-      　　    <tr>
-        　　    <td style="width:20%">ジャンル名</td>
-              <td style="width:20%"><%= f.text_field :genre_name, size: 25 %></td>
-              <td><%= image_submit_tag("update.png") %></td>
-      　　    </tr>
-          </thead>
-        </table>
+          <% @genre.errors.full_messages.each do |message| %>
+            <p>※<%= message %></p>
+          <% end %>
+
+          <table class= "table table-borderless">
+            <thead>
+        　　    <tr>
+          　　    <td style="width:20%">ジャンル名</td>
+                <td style="width:20%"><%= f.text_field :genre_name, size: 25 %></td>
+                <td><%= image_submit_tag("update.png") %></td>
+        　　    </tr>
+            </thead>
+          </table>
         <% end %>
 
     </div>

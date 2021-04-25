@@ -25,6 +25,8 @@
   <% end %>
 </div>
 
+<%# if user_signed_in? && current_user.withdraw_status != nil %>
 <div class="new-post">
   <%= link_to image_tag(src= "new-post2.png"), new_post_path %>
 </div>
+<%# end %>

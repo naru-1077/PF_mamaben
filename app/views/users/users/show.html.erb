@@ -2,29 +2,29 @@
   <div class="row">
     <div class="col-md-12">
 
-      <table class="table table-borderless">
+      <table class="user-show-btn table table-borderless">
         <tbody>
           <tr>
-            <td style="width:25%"><p><strong>＼登録情報／</strong><%= link_to image_tag(src= "edit.png"), users_my_page_edit_path %>
+            <td style="width:30%"><p><strong>＼登録情報／</strong><%= link_to image_tag(src= "edit.png"), users_my_page_edit_path %>
             <td><p><strong>＼退会／</strong><%= link_to image_tag(src= "withdraw-view.png"), users_unsubscribe_path %></p></td>
           </tr>
         </tbody>
       </table>
 
-      <table class="user-show table table-hover table-inverse table-bordered">
+      <table class="user-show table table-hover table-inverse table-borderless mx-auto" style="width: 50%">
         <tbody>
           <tr>
-            <td>アカウント名</td>
+            <td style="width:30%">アカウント名</td>
             <td><%= @user.name %></td>
           </tr>
           <tr>
             <td>メールアドレス</td>
             <td><%= @user.email %></td>
           </tr>
-          <tr>
-            <td>パスワード</td>
-            <td><%= @user.encrypted_password %></td>
-          </tr>
+          <!--<tr>-->
+          <!--  <td>パスワード</td>-->
+          <!--  <td><%#= @user.encrypted_password %></td>-->
+          <!--</tr>-->
         </tbody>
       </table>
 

@@ -4,7 +4,7 @@
 
       <h4>コメント一覧(全<%= @post_comments.count %>件)</h4>
         <% @post_comments.each do |post_comment| %>
-          <table class= "comment-index d-inline-block table-bordered">
+          <table class= "comment-index d-inline-block">
             <tr>
               <td>
                 <%= link_to post_path(post_comment.post) do %>
@@ -25,8 +25,8 @@
           </table>
         <% end %>
 
+    <!--colの閉じ-->
     </div>
-
 
     <div class="center-block mx-auto">
       <%= paginate @post_comments %>
