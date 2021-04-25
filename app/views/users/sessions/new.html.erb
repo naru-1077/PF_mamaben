@@ -4,42 +4,42 @@
 
 　　　<div class="title text-center">
         <%= image_tag(src= "logo.png") %>
-        <h2 class="title">mama弁アカウントでログイン<h2>
-        <p class="title-text">mama弁アカウントをお持ちの方は、ログインしてご利用ください<p>
-        <p class="title-text"><%= link_to "アカウント作成はこちら", new_user_registration_path %><p>
+          <h2 class="title">mama弁アカウントでログイン<h2>
+            <p class="title-text">mama弁アカウントをお持ちの方は、ログインしてご利用ください<p>
+            <p class="title-text"><%= link_to "アカウント作成はこちら", new_user_registration_path %><p>
       </div>
 
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
         <p><%= flash[:alert]%></p>
-      <br>
+        <br>
 
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-8">
-          <table class="table table-hover table-inverse table-borderless text-center">
-            <thead>
-              <tr>
-                <td style="width: 27%">メールアドレス</td>
-                <td><%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@example.com", size: 50 %></td>
-              </tr>
-              <tr>
-                <td><%= f.label :パスワード %></td>
-                <td><%= f.password_field :password, autocomplete: "new-password", size: 50 %></td>
-              </tr>
-              <!--<%# if devise_mapping.rememberable? %>-->
-              <!--<tr>-->
-              <!--  <td></td>-->
-              <!--  <td><%# f.check_box :remember_me %><%#= f.label :remember_me,"ログイン状態を保持する" %></td>-->
-              <!--</tr>-->
-              <!--<%# end %>-->
-              <tr>
-                <td></td>
-                <td><%= image_submit_tag("login.png") %></td>
-              </tr>
-            </thead>
-          </table>
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-8">
+            <table class="table table-hover table-inverse table-borderless text-center">
+              <thead>
+                <tr>
+                  <td style="width: 27%">メールアドレス</td>
+                  <td><%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "sample@example.com", size: 50 %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :パスワード %></td>
+                  <td><%= f.password_field :password, autocomplete: "new-password", size: 50 %></td>
+                </tr>
+                <!--<%# if devise_mapping.rememberable? %>-->
+                <!--<tr>-->
+                <!--  <td></td>-->
+                <!--  <td><%# f.check_box :remember_me %><%#= f.label :remember_me,"ログイン状態を保持する" %></td>-->
+                <!--</tr>-->
+                <!--<%# end %>-->
+                <tr>
+                  <td></td>
+                  <td><%= image_submit_tag("login.png") %></td>
+                </tr>
+              </thead>
+            </table>
+          </div>
         </div>
-      </div>
       <% end %>
 
     </div>

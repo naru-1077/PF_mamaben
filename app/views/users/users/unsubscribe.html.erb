@@ -1,14 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+
       <div class="unsubscribe text-center">
         <h4><strong>本当に退会しますか？</strong></h4><br />
-        <p>退会すると、アカウント登録情報やこれまでの投稿履歴、</p>
-        <p>お気に入りした投稿が閲覧できなくなります。</p>
-        <p>退会する場合は、「退会する」をクリックしてください。</p>
-        <%= link_to image_tag(src= "not-withdraw.png"), users_my_page_path %>&emsp;&emsp;
-        <%= link_to image_tag(src= "withdraw.png"), users_withdraw_path, method: :patch %>
+          <p>退会すると、アカウント登録情報やこれまでの投稿履歴、</p>
+          <p>お気に入りした投稿が閲覧できなくなります。</p>
+          <p>退会する場合は、「退会する」をクリックしてください。</p>
+            <%= link_to image_tag(src= "not-withdraw.png"), users_my_page_path %>&emsp;&emsp;
+            <%= link_to image_tag(src= "withdraw.png"), users_withdraw_path, method: :patch %>
       </div>
+
     </div>
   </div>
 </div>

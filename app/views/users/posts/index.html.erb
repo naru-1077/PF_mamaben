@@ -10,12 +10,12 @@
         <% if !params[:q] && params[:tag_name].blank? %>
           投稿一覧(全<%= @posts_all.count %>件)
         <% else %>
-          検索結果(全<%= "#{@post_count} / #{@posts_all.count}" %>件)
+          検索結果(<%= "#{@post_count}" %>件 / 全<%="#{@posts_all.count}" %>件中)
         <% end %>
       </h4>
 
       <% @posts_search.each do |post| %>
-        <table class= "post-index d-inline-block table-bordered">
+        <table class= "post-index d-inline-block">
           <tr>
             <td>
               <%= link_to post_path(post) do %>

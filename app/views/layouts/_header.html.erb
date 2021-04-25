@@ -1,28 +1,28 @@
 <header>
   <div class="logo"><%= link_to image_tag(src= "logo_header.png"), "/" %></div>
-  <div class="openbtn"><span></span><span></span><span></span></div>
-    <nav id="g-nav">
-    <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
-      <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? && !request.fullpath.include?('/admins') %>
-          <li class="nav-link" style="color: #AA5336">ようこそ、<%= user.name %>さん！</li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header10.png"), root_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header1.png"), new_post_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header3.png"), users_my_page_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header4.png"), destroy_user_session_path, method: :delete %></li>
-        <% elsif admin_signed_in? %>
-          <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header8.png"), admins_users_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header9.png"), admins_genres_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header4.png"), destroy_admin_session_path, method: :delete %></li>
-        <% else %>
-          <li class="nav-link1"><%= link_to image_tag(src= "header5.png"), about_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header6.png"), new_user_registration_path %></li>
-          <li class="nav-link1"><%= link_to image_tag(src= "header7.png"), new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </div>
-    </nav>
+    <div class="openbtn"><span></span><span></span><span></span></div>
+      <nav id="g-nav">
+        <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? && !request.fullpath.include?('/admins') %>
+              <li class="nav-link" style="color: #AA5336">ようこそ、<%= user.name %>さん！</li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header10.png"), root_path %></li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header1.png"), new_post_path %></li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path %></li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header3.png"), users_my_page_path %></li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header4.png"), destroy_user_session_path, method: :delete %></li>
+            <% elsif admin_signed_in? %>
+              <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), admins_posts_path %></li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header8.png"), admins_users_path %></li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header9.png"), admins_genres_path %></li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header4.png"), destroy_admin_session_path, method: :delete %></li>
+            <% else %>
+              <li class="nav-link1"><%= link_to image_tag(src= "header5.png"), about_path %></li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header2.png"), posts_path %></li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header6.png"), new_user_registration_path %></li>
+              <li class="nav-link1"><%= link_to image_tag(src= "header7.png"), new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
 </header>

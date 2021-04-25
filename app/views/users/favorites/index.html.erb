@@ -4,7 +4,7 @@
 
       <h4>お気に入り一覧(全<%= @favorites.count %>件)</h4>
         <% @favorites.each do |post| %>
-          <table class= "favorite-index d-inline-block table-bordered">
+          <table class= "favorite-index d-inline-block">
             <tr>
               <td>
                 <%= link_to post_path(post) do %>
@@ -18,7 +18,7 @@
             <% else %>
               <td>アカウント名：<%= link_to "#{post.user.name}".truncate(18), users_post_histories_path(post.user.id) %>さん</td>
             <% end %>
-          </tr>
+            </tr>
             <tr>
               <td><%= "ジャンル: #{post.genre.genre_name}" %></td>
             </tr>
@@ -37,6 +37,7 @@
           </table>
         <% end %>
 
+    <!--colの閉じ-->
     </div>
 
     <div class="center-block mx-auto">

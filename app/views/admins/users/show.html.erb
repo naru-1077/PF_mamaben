@@ -1,39 +1,40 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+
       <h2 class="title"> <%= @user.name %>さんの会員詳細</h2>
-      <table class="table table-borderless">
-        <tbody>
-          <tr>
-            <td>会員ID</td>
-            <td><%= @user.id %></td>
-          </tr>
-          <tr>
-            <td>アカウント名</td>
-             <td><%= @user.name %></td>
-          </tr>
-          <tr>
-            <td>メールアドレス</td>
-            <td><%= @user.email %></td>
-          </tr>
-          <tr>
-            <td>会員ステータス</td>
-            <td>
-              <% if @user.withdraw_status == false %>
-                有効
-              <% else %>
-                退会
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><%= link_to image_tag(src= "edit.png"), edit_admins_user_path(@user) %></td>
-            <td><h5>投稿履歴<%= link_to image_tag(src= "look.png"), post_histories_admins_user_path(@user) %></h5></td>
-            <td><h5>コメント履歴<%= link_to image_tag(src= "look.png"), posts_by_own_comments_admins_user_path(@user) %></h5></td>
-          </tr>
-        </tbody>
-      </table>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td>会員ID</td>
+              <td><%= @user.id %></td>
+            </tr>
+            <tr>
+              <td>アカウント名</td>
+               <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <td>会員ステータス</td>
+              <td>
+                <% if @user.withdraw_status == false %>
+                  有効
+                <% else %>
+                  退会
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= link_to image_tag(src= "edit.png"), edit_admins_user_path(@user) %></td>
+              <td><h5>投稿履歴<%= link_to image_tag(src= "look.png"), post_histories_admins_user_path(@user) %></h5></td>
+              <td><h5>コメント履歴<%= link_to image_tag(src= "look.png"), posts_by_own_comments_admins_user_path(@user) %></h5></td>
+            </tr>
+          </tbody>
+        </table>
 
     </div>
   </div>
