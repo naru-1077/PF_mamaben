@@ -13,4 +13,8 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :post_comments_post, through: :post_comments, source: :post
 
+  def active_for_authentication?
+    super && (self.withdraw_status == false)
+  end
+
 end

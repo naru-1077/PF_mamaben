@@ -10,7 +10,8 @@
       </div>
 
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-        <p><%= flash[:alert]%></p>
+        <p class="text-center"><%= flash[:alert]%></p>
+        <p class="text-center"><%= flash[:error]%></p>
         <br>
 
         <div class="row">
