@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :reject_inactive_user, only: [:create]
+  before_action :reject_withdraw_user, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -31,10 +31,11 @@ class Users::SessionsController < Devise::SessionsController
 
   private
 
-  def reject_inactive_user
-    @user = User.find_by(email: params[:user][:email])
+  def reject_withdraw_user
+    @user = User.find_by(email: params[:user][:email].downcase)
     if @user
-      if @user.withdraw_status
+      if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
+        flash[:error] = "お客様は退会済みです。申し訳ございませんが、新しくアカウントを作成してください。"
         redirect_to new_user_session_path
       end
     end

@@ -171,3 +171,13 @@ $(document).on('turbolinks:load', function(){
     infinite: true,  // 無限スクロールにするかどうか。最後の画像の次は最初の画像が表示される。
   });
 });
+
+$(document).on('turbolinks:load', function(){
+    $('input').keydown(function(e) {
+        if (e.which === 13) {
+            $(this).blur();
+            $(this).focus();
+            return false;
+        }
+    });
+});
