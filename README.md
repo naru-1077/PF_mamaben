@@ -24,3 +24,9 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 使用素材
+- 写真：https://www.photo-ac.com/
+- フォント：http://modi.jpn.org/
+- ロゴ：https://www.canva.com/
+- ロゴ：https://www.designevo.com/
