@@ -8,16 +8,15 @@ class Users::PostCommentsController < ApplicationController
 
   def create
     @post_comments = PostComment.where(post_id: params[:post_id])
-    count = 0
     @arrow_comment = true
     @post_comments.each do |post_comment|
       if current_user.id == post_comment.user_id
-        count += 1
         @arrow_comment = false
+        return
       end
     end
-    if count >= 1
-    else
+    if @arrow_comment
+      @post_comments=current_user.post_comments.where(post_id:params[:post_id])
       @comment = current_user.post_comments.new(post_comment_params)
       @comment.post_id = params[:post_id]
       @comment.save
@@ -25,6 +24,7 @@ class Users::PostCommentsController < ApplicationController
   end
 
   def destroy
+    @post_comments=current_user.post_comments.where(post_id:params[:post_id])
     @comment = PostComment.find_by(id: params[:id], post_id: params[:post_id])
     @comment.destroy
   end
