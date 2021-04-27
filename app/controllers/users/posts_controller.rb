@@ -46,8 +46,10 @@ class Users::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    @user = current_user
     @comments = @post.post_comments
     @tags = @post.tag_counts_on(:tags)
+    @post_comments = current_user.post_comments.where(post_id:@post.id)
   end
 
   def edit
