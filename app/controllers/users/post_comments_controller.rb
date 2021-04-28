@@ -24,7 +24,7 @@ class Users::PostCommentsController < ApplicationController
   end
 
   def destroy
-    @post_comments=current_user.post_comments.where(post_id:params[:post_id])
+    @post_comments = current_user.post_comments.where(post_id:params[:post_id])
     @comment = PostComment.find_by(id: params[:id], post_id: params[:post_id])
     @comment.destroy
   end
