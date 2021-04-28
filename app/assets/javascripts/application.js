@@ -112,6 +112,38 @@ reader.readAsDataURL(e.target.files[0]);
 });
 });
 
+// レシピ作り方画像プレビュー7
+$(document).on('turbolinks:load', function () {
+$('#post_recipes_attributes_6_recipe_image').on('change', function (e) {
+var reader = new FileReader();
+reader.onload = function (e) {
+    $("#preview_recipe7").attr('src', e.target.result);
+}
+reader.readAsDataURL(e.target.files[0]);
+});
+});
+
+// レシピ作り方画像プレビュー8
+$(document).on('turbolinks:load', function () {
+$('#post_recipes_attributes_7_recipe_image').on('change', function (e) {
+var reader = new FileReader();
+reader.onload = function (e) {
+    $("#preview_recipe8").attr('src', e.target.result);
+}
+reader.readAsDataURL(e.target.files[0]);
+});
+});
+
+// レシピ作り方画像プレビュー9
+$(document).on('turbolinks:load', function () {
+$('#post_recipes_attributes_8_recipe_image').on('change', function (e) {
+var reader = new FileReader();
+reader.onload = function (e) {
+    $("#preview_recipe9").attr('src', e.target.result);
+}
+reader.readAsDataURL(e.target.files[0]);
+});
+});
 
 // (ページトップのスクロール)
 //スクロールした際の動きを関数でまとめる

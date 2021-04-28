@@ -29,7 +29,7 @@ class Users::PostsController < ApplicationController
 
   def create
     create_params = post_params
-    for i in 0..5 do
+    for i in 0..8 do
       if create_params["recipes_attributes"][i.to_s]["recipe_image"] == "{}" and create_params["recipes_attributes"][i.to_s]["recipe"].blank?
         create_params["recipes_attributes"][i.to_s]["_destroy"] = "1"
       end
@@ -54,8 +54,8 @@ class Users::PostsController < ApplicationController
 
   def edit
    @post = Post.find(params[:id])
-  if @post.recipes.count < 6
-    (@post.recipes.count..5).each do |recipe|
+  if @post.recipes.count < 9
+    (@post.recipes.count..8).each do |recipe|
       @post.recipes.push(Recipe.new)
     end
   end
@@ -64,7 +64,7 @@ class Users::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     update_params = update_post_params
-    for i in 0..5 do
+    for i in 0..8 do
       if update_params["recipes_attributes"][i.to_s]["recipe_image"] == "{}" and update_params["recipes_attributes"][i.to_s]["recipe"].blank?
         update_params["recipes_attributes"][i.to_s]["_destroy"] = "1"
       end
