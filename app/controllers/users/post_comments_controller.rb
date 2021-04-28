@@ -8,15 +8,15 @@ class Users::PostCommentsController < ApplicationController
 
   def create
     @post_comments = PostComment.where(post_id: params[:post_id])
-    @arrow_comment = true
+    @allow_comment = true
     @post_comments.each do |post_comment|
       if current_user.id == post_comment.user_id
-        @arrow_comment = false
+        @allow_comment = false
         return
       end
     end
-    if @arrow_comment
-      @post_comments=current_user.post_comments.where(post_id:params[:post_id])
+    if @allow_comment
+      @post_comments = current_user.post_comments.where(post_id:params[:post_id])
       @comment = current_user.post_comments.new(post_comment_params)
       @comment.post_id = params[:post_id]
       @comment.save

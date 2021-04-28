@@ -1,4 +1,4 @@
-<% if @arrow_comment %>
+<% if @allow_comment %>
     $(".my_comment").html("<%= j(render 'users/post_comments/my_comment', { post_comments: @post_comments}) %>");
     $("textarea").val('')
 <% else %>
