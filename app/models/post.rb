@@ -19,9 +19,16 @@ class Post < ApplicationRecord
 	validates :image, presence: true
 	validates :introduction, presence: true
 	validates :material, presence: true
+	validate :score_is_invalid
 
  def favorited_by?(user)
    favorites.where(user_id: user.id).exists?
+ end
+
+ def score_is_invalid
+ 	if self.score  < 0.5
+ 		errors.add(:score, 'こちらの投稿には不適切な文言が含まれているため投稿できません。')
+ 	end
  end
 
 end

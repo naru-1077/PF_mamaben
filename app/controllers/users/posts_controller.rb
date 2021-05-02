@@ -36,6 +36,11 @@ class Users::PostsController < ApplicationController
     end
     @post = Post.new(create_params)
     @post.user = current_user
+    text = @post.title+","+@post.introduction+","+@post.material+"," # AI　title,introduction,material
+    @post.recipes.each do |recipe|
+      text += recipe.recipe+","  # AI　上記のtextにrecipeをあるだけ足す
+    end
+    @post.score = Language.get_data(text) # AI　@post.scoreの中にLanguage.get_data(text)を入れる
     if @post.save
       redirect_to post_path(@post)
     else
@@ -64,11 +69,16 @@ class Users::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     update_params = update_post_params
+    text = update_params[:title]+","+update_params[:introduction]+","+update_params[:material]+"," # AI　title,introduction,material
     for i in 0..8 do
       if update_params["recipes_attributes"][i.to_s]["recipe_image"] == "{}" and update_params["recipes_attributes"][i.to_s]["recipe"].blank?
         update_params["recipes_attributes"][i.to_s]["_destroy"] = "1"
       end
+      if !update_params["recipes_attributes"][i.to_s]["recipe"].blank?
+        text += update_params["recipes_attributes"][i.to_s]["recipe"] + ","
+      end
     end
+    @post.score = Language.get_data(text) # AI　@post.scoreの中にLanguage.get_data(text)を入れる
     if @post.update(update_params)
       redirect_to post_path(@post)
     else

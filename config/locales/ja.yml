@@ -16,6 +16,7 @@ ja:
         introduction: 投稿紹介文
         material: 材料
         genre: ジャンル
+        score: ""
       recipe:
         recipe_image: 作り方画像
         recipe: 作り方
