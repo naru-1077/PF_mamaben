@@ -2,9 +2,11 @@
   <div class="row">
     <div class="col-md-12">
 
+      <%= render "admins/posts/search" %>
       <h4>投稿一覧(全<%= @posts_all.count %>件)</h4>
-      <% @posts_search.each do |post| %>
-        <table class= "post-index d-inline-block">
+
+      <% @posts.each do |post| %>
+        <table class= "admin-post-index d-inline-block">
           <tr>
             <td>
               <%= link_to admins_post_path(post) do %>
@@ -30,6 +32,9 @@
           <tr>
             <td><%= "投稿日時: #{post.created_at.strftime('%Y/%m/%d')}" %></td>
           </tr>
+          <tr>
+            <td>点数：<%= post.score %></td>
+          </tr>
         </table>
       <% end %>
 
@@ -37,7 +42,7 @@
     </div>
 
     <div class="center-block mx-auto">
-      <%= paginate @posts_search %>
+      <%= paginate @posts %>
     </div>
 
   </div>

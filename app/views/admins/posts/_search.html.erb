@@ -1,0 +1,13 @@
+<div class="search">
+  <%= form_with model: @post, url: admins_posts_path, method: :get, local: true do |f| %>
+    <table class="table table-borderless">
+      <tr>
+        <td>ソート<%= f.select :keyword, [ ['点数が低い順', 'score'] ] %>
+            <button type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>
