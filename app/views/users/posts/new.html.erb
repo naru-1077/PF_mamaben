@@ -52,32 +52,27 @@
     <!--rowの閉じ-->
     </div>
 
-    <div class="row">
-      <% 1.upto(9) do |num| %>
-        <%= f.fields_for :recipes, @post.recipes.build do |r| %>
+    <!--追加ボタンの記述 -->
+    <div class="text-right">
+      <%= link_to_add_association '作り方フォーム追加', f, :recipes,
+        class: 'btn btn-success',
+        data: {
+          association_insertion_node: '#detail-association-insertion-point',
+          association_insertion_method: 'append' }
+      %>
+    </div>
 
-          <div class="col-md-4">
-            <table class="table table-borderless">
-              <thead>
-                <tr>
-                  <td style="width:10%">作り方<%= num %></td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><%= r.attachment_field  :recipe_image %></td>
-                </tr>
-                <tr>
-                  <td><img id="preview_recipe<%= num %>"></td>
-                </tr>
-                <tr>
-                  <td><%= r.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+    <div class="row">
+
+      <!-- 動的に追加するフォームを挿入する箇所 -->
+      <div id="detail-association-insertion-point">
+      <%# 1.upto(9) do |num| %>
+        <%= f.fields_for :recipes, @post.recipes.build do |r| %>
+          <%= render "users/posts/recipe_fields", f: r %>
         <% end %>
-      <% end %>
+      <%# end %>
+      </div>
+
     </div>
 
     <div class="text-right" style="margin-bottom: 15px">

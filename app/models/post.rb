@@ -26,7 +26,7 @@ class Post < ApplicationRecord
  end
 
  def score_is_invalid
- 	if self.score  < 0.5
+ 	if self.score  < 0
  		errors.add(:score, 'こちらの投稿には不適切な文言が含まれているため投稿できません。')
  	end
  end
