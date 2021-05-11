@@ -94,7 +94,7 @@ class Users::PostsController < ApplicationController
 
   private
   def post_params
-      params.require(:post).permit(:image, :title, :introduction, :material, :genre_id, :tag_list, recipes_attributes: [:recipe_image, :recipe])
+      params.require(:post).permit(:image, :title, :introduction, :material, :genre_id, :tag_list, recipes_attributes: [:id, :recipe_image, :recipe, :_destroy])
   end
 
   def update_post_params

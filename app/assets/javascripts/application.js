@@ -19,6 +19,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require cocoon
 //= require_tree .
 
 $(document).on('turbolinks:load', function () {
@@ -46,104 +47,18 @@ reader.readAsDataURL(e.target.files[0]);
 });
 });
 
-// レシピ作り方画像プレビュー1
+// レシピ作り方画像プレビュー
 $(document).on('turbolinks:load', function () {
-$('#post_recipes_attributes_0_recipe_image').on('change', function (e) {
+    $(document).on('change','.image-btn',function(e) {
 var reader = new FileReader();
+var target =  $(this).parent().children('img')
 reader.onload = function (e) {
-    $("#preview_recipe1").attr('src', e.target.result);
+    target.attr('src', e.target.result);
 }
 reader.readAsDataURL(e.target.files[0]);
 });
 });
 
-// レシピ作り方画像プレビュー2
-$(document).on('turbolinks:load', function () {
-$('#post_recipes_attributes_1_recipe_image').on('change', function (e) {
-var reader = new FileReader();
-reader.onload = function (e) {
-    $("#preview_recipe2").attr('src', e.target.result);
-}
-reader.readAsDataURL(e.target.files[0]);
-});
-});
-
-// レシピ作り方画像プレビュー3
-$(document).on('turbolinks:load', function () {
-$('#post_recipes_attributes_2_recipe_image').on('change', function (e) {
-var reader = new FileReader();
-reader.onload = function (e) {
-    $("#preview_recipe3").attr('src', e.target.result);
-}
-reader.readAsDataURL(e.target.files[0]);
-});
-});
-
-// レシピ作り方画像プレビュー4
-$(document).on('turbolinks:load', function () {
-$('#post_recipes_attributes_3_recipe_image').on('change', function (e) {
-var reader = new FileReader();
-reader.onload = function (e) {
-    $("#preview_recipe4").attr('src', e.target.result);
-}
-reader.readAsDataURL(e.target.files[0]);
-});
-});
-
-// レシピ作り方画像プレビュー5
-$(document).on('turbolinks:load', function () {
-$('#post_recipes_attributes_4_recipe_image').on('change', function (e) {
-var reader = new FileReader();
-reader.onload = function (e) {
-    $("#preview_recipe5").attr('src', e.target.result);
-}
-reader.readAsDataURL(e.target.files[0]);
-});
-});
-
-// レシピ作り方画像プレビュー6
-$(document).on('turbolinks:load', function () {
-$('#post_recipes_attributes_5_recipe_image').on('change', function (e) {
-var reader = new FileReader();
-reader.onload = function (e) {
-    $("#preview_recipe6").attr('src', e.target.result);
-}
-reader.readAsDataURL(e.target.files[0]);
-});
-});
-
-// レシピ作り方画像プレビュー7
-$(document).on('turbolinks:load', function () {
-$('#post_recipes_attributes_6_recipe_image').on('change', function (e) {
-var reader = new FileReader();
-reader.onload = function (e) {
-    $("#preview_recipe7").attr('src', e.target.result);
-}
-reader.readAsDataURL(e.target.files[0]);
-});
-});
-
-// レシピ作り方画像プレビュー8
-$(document).on('turbolinks:load', function () {
-$('#post_recipes_attributes_7_recipe_image').on('change', function (e) {
-var reader = new FileReader();
-reader.onload = function (e) {
-    $("#preview_recipe8").attr('src', e.target.result);
-}
-reader.readAsDataURL(e.target.files[0]);
-});
-});
-
-// レシピ作り方画像プレビュー9
-$(document).on('turbolinks:load', function () {
-$('#post_recipes_attributes_8_recipe_image').on('change', function (e) {
-var reader = new FileReader();
-reader.onload = function (e) {
-    $("#preview_recipe9").attr('src', e.target.result);
-}
-reader.readAsDataURL(e.target.files[0]);
-});
-});
 
 // (ページトップのスクロール)
 //スクロールした際の動きを関数でまとめる
