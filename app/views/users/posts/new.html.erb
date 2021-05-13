@@ -53,9 +53,9 @@
     </div>
 
     <!--追加ボタンの記述 -->
-    <div class="text-right">
+    <div class="text-left" style="margin-bottom:10px">
       <%= link_to_add_association '作り方フォーム追加', f, :recipes,
-        class: 'btn btn-success',
+        class: 'btn btn-outline-success',
         data: {
           association_insertion_node: '#detail-association-insertion-point',
           association_insertion_method: 'append' }

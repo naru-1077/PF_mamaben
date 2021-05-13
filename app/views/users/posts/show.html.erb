@@ -63,7 +63,7 @@
           <tbody>
             <tr>
               <% if recipe.recipe_image.present? %>
-                <td><%= attachment_image_tag recipe, :recipe_image, format: 'jpeg', size: "350x200", id: "preview_recipe#{idx}",follback: image_url("no-image.png") %></td>
+                <td><%= attachment_image_tag recipe, :recipe_image, format: 'jpeg', size: "350x200", class: "preview_recipe#{idx}", follback: image_url("no-image.png") %></td>
               <% else %>
                 <td><%= image_tag(src= "no-image.png", size: "350x200") %></td>
               <% end %>

@@ -3,7 +3,7 @@
     <table class="table table-borderless">
       <thead>
         <tr>
-          <td style="width:10%">作り方<%#= num %></td>
+          <td style="width:10%">作り方<%= index %></td>
         </tr>
         <tr>
           <td><%= link_to_remove_association "削除", f, class: 'btn btn-outline-danger' %></td>
@@ -11,7 +11,14 @@
       </thead>
       <tbody>
         <tr>
-          <td><%= f.attachment_field  :recipe_image, class: 'image-btn' %><img class="preview_recipe"></td>
+          <td>
+            <%= f.attachment_field  :recipe_image, class: 'image-btn' %>
+            <% if recipe.recipe_image.present? %>
+              <%= attachment_image_tag recipe, :recipe_image, format: 'jpeg', size: "340x200", class: "preview_recipe" %>
+            <% else %>
+          　　<img class="preview_recipe">
+        　　<% end %>
+          </td>
         </tr>
         <tr>
           <td><%= f.text_area :recipe, placeholder: "まずはたまごを２個よく混ぜ砂糖を入れます", size: "40x5" %></td>
