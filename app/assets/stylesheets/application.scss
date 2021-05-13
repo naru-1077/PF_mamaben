@@ -244,10 +244,23 @@ footer {
 }
 
 // 作り方フォーム
-// #detail-association-insertion-point {
-//   display: flex;
-//   flex-wrap: wrap;
-// }
+#detail-association-insertion-point {
+  // display: flex;
+  // flex-wrap: wrap;
+  // overflow-wrap: normal;
+  width: 100%;
+}
+
+.nested-fields {
+  float: left;
+  width: 33%;
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: block;
+}
 
 /*========= post_comments ===============*/
 
