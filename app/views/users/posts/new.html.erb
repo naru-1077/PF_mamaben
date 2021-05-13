@@ -63,9 +63,8 @@
     </div>
 
     <div class="row">
-
       <!-- 動的に追加するフォームを挿入する箇所 -->
-      <div id="detail-association-insertion-point">
+      <div id="detail-association-insertion-point" class="clearfix" >
       <%# 1.upto(9) do |num| %>
         <%= f.fields_for :recipes, @post.recipes.build do |r| %>
           <%= render "users/posts/recipe_fields", f: r %>
