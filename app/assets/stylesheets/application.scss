@@ -44,8 +44,6 @@ header {
 //　ボタン
 .btn {
   font-size: 20px;
-  margin-right: 10px;
-  margin-left: 20px;
 }
 
 // ようこそ〜さん
@@ -216,9 +214,10 @@ footer {
 }
 
 // 新規投稿preview_recipe
-#preview_recipe1, #preview_recipe2, #preview_recipe3, #preview_recipe4, #preview_recipe5, #preview_recipe6, #preview_recipe7, #preview_recipe8, #preview_recipe9 {
+.preview_recipe {
   height: 200px;
   width: 340px;
+  margin-top: 5px;
 }
 
 // 投稿一覧
@@ -243,6 +242,12 @@ footer {
 .post-show-btn {
   margin-bottom: 10px;
 }
+
+// 作り方フォーム
+// #detail-association-insertion-point {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
 
 /*========= post_comments ===============*/
 

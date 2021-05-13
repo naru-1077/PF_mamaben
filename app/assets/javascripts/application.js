@@ -59,7 +59,6 @@ reader.readAsDataURL(e.target.files[0]);
 });
 });
 
-
 // (ページトップのスクロール)
 //スクロールした際の動きを関数でまとめる
 $(document).on('turbolinks:load', function () {
