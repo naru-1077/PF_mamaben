@@ -115,9 +115,12 @@ $(document).on('turbolinks:load', function(){
     pauseOnDotsHover: true,  // 自動再生時にドットにマウスオンで一時停止するかどうか
     arrows: true,  // 左右の次へ、前へボタンを表示するかどうか
     infinite: true,  // 無限スクロールにするかどうか。最後の画像の次は最初の画像が表示される。
+    // slidesToScroll: 3,//1回のスクロールで3枚の写真を移動して見せる
+    // slidesToShow: 3,//スライドを画面に3枚見せる
   });
 });
 
+// 投稿の際にエンターを無効化
 $(document).on('turbolinks:load', function(){
     $('input').keydown(function(e) {
         if (e.which === 13) {
