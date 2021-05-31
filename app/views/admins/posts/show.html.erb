@@ -22,7 +22,7 @@
       </table>
       <table class="table table-borderless">
         <tr>
-          <td><%= attachment_image_tag @post, :image, format: 'jpeg', size: "450x250" %></td>
+          <td><%= attachment_image_tag @post, :image, :fill, 450,250, format: 'jpeg', size: "450x250" %></td>
         </tr>
       </table>
     </div>
